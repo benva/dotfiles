@@ -15,3 +15,4 @@ echo "Copied .zsh directory"
 cp ~/.vim/coc-settings.json ~/dev-config/.vim/coc-settings.json
 echo "Copied coc-settings.json file"
 
+echo "Finished update!"
