@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cp ~/.gitconfig ~/Projects/dev-config/.gitconfig
+echo "Copied .gitconfig file"
+
+cp ~/.vimrc ~/Projects/dev-config/.vimrc
+echo "Copied .vimrc file"
+
+cp ~/.zshrc ~/Projects/dev-config/.zshrc
+echo "Copied .zshrc file"
+
+cp -R ~/.zsh ~/Projects/dev-config/.zsh
+echo "Copied .zsh directory"
+
+cp -R ~/.vim ~/Projects/dev-config/.vim
+echo "Copied .vim directory"
+
+
