@@ -1,8 +1,5 @@
 #!/bin/bash
 
-cp ~/dev-config/.gitconfig ~/.gitconfig
-echo "Updated .gitconfig file"
-
 cp ~/dev-config/.vimrc ~/.vimrc
 echo "Updated .vimrc file"
 
