@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cp ~/dev-config/.gitconfig ~/.gitconfig
+echo "Updated .gitconfig file"
+
+cp ~/dev-config/.vimrc ~/.vimrc
+echo "Updated .vimrc file"
+
+cp ~/dev-config/.zshrc ~/.zshrc
+echo "Updated .zshrc file"
+
+cp ~/dev-config/.zsh ~/
+echo "Updated .zsh directory"
+
+mkdir -p ~/.vim && cp ~/dev-config/.vim/coc-settings.json ~/.vim
+echo "Updated coc-settings.json file"
+
+echo "Finished setup!"
