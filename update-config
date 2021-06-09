@@ -12,7 +12,6 @@ echo "Copied .zshrc file"
 cp -R ~/.zsh ~/dev-config/.zsh
 echo "Copied .zsh directory"
 
-cp -R ~/.vim ~/dev-config/.vim
-echo "Copied .vim directory"
-
+cp ~/.vim/coc-settings.json ~/dev-config/.vim/coc-settings.json
+echo "Copied coc-settings.json file"
 
