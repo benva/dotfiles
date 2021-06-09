@@ -1,8 +1,0 @@
-[user]
-	email = benjamin.asals@gmail.com
-	name = Benjamin Verna-Asals
-	password = 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
-[credential]
-	helper = store
-[pull]
-	rebase = false
