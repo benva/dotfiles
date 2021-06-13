@@ -23,9 +23,9 @@ echo "Installing ZSH"
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-cp ~/dev-config/zshrc ~/zshrc
+cp ~/dev-config/zshrc ~/.zshrc
 
-cp -R ~/dev-config/.zsh ~/
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # ========================
 # POWERLINE FONTS
@@ -52,7 +52,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 cp ~/dev-config/vimrc ~/.vimrc
 
-cp ~/dev-config/coc-settings.json ~/.vim
+cp ~/dev-config/coc-settings.json ~/.vim/coc-settings.json
 
 vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
 
