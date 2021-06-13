@@ -1,7 +1,10 @@
 # dev-config
 
+- Xcode
+- Chrome
+- Zoom
+- Git config
 - Use iTerm2.json profile
-- Select Source Code Pro for Powerline
 
 ## Install
 
