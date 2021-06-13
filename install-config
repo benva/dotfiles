@@ -1,15 +1,62 @@
 #!/bin/bash
 
-cp ~/dev-config/.vimrc ~/.vimrc
-echo "Updated .vimrc file"
+# ========================
+# HOMEBREW
+# ========================
+echo "Installing Homebrew"
+
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install --cask amethyst \
+  iterm2 \
+  react-native-debugger
+
+brew install git \
+  ranger \
+  ripgrep \
+  zsh
+
+# ========================
+# ZSH
+# ========================
+echo "Installing ZSH"
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 cp ~/dev-config/.zshrc ~/.zshrc
-echo "Updated .zshrc file"
 
-cp ~/dev-config/.zsh ~/
-echo "Updated .zsh directory"
+cp -R ~/dev-config/.zsh ~/
 
-mkdir -p ~/.vim && cp ~/dev-config/.vim/coc-settings.json ~/.vim
-echo "Updated coc-settings.json file"
+# ========================
+# POWERLINE FONTS
+# ========================
+echo "Installing Powerline Fonts"
+
+git clone https://github.com/powerline/fonts.git --depth=1
+
+cd fonts
+
+./install.sh
+
+cd ..
+
+rm -rf fonts
+
+# ========================
+# VIM
+# ========================
+echo "Installing Vim"
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+cp ~/dev-config/.vimrc ~/.vimrc
+
+cp ~/dev-config/.vim/coc-settings.json ~/.vim
+
+vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
+
+gem install solargraph
 
 echo "Finished setup!"
+
