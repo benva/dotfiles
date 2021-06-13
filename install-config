@@ -7,15 +7,17 @@ echo "Installing Homebrew"
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install --cask amethyst \
-  iterm2 \
-  react-native-debugger
-
 brew install git \
+  node \
   ranger \
   ripgrep \
   ruby \
   zsh
+
+brew install --cask amethyst \
+  docker \
+  iterm2 \
+  react-native-debugger
 
 # ========================
 # ZSH
@@ -57,7 +59,14 @@ cp ~/dev-config/coc-settings.json ~/.vim/coc-settings.json
 
 vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
 
+# ========================
+# RUBY GEMS
+# ========================
+echo "Installing Ruby Gems"
+
 gem install solargraph
+
+gem install rubocop
 
 echo "Finished setup!"
 
