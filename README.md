@@ -1,7 +1,7 @@
 # dev-config
 
-Use iTerm2.json profile
-Select Source Code Pro for Powerline
+- Use iTerm2.json profile
+- Select Source Code Pro for Powerline
 
 ## Install
 
