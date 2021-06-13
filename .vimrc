@@ -12,11 +12,16 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-endwise'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'alvan/vim-closetag'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -37,12 +42,16 @@ set modelines=0
 " Show line numbers
 set number
 
-" Relative line numbers
-set number relativenumber
-set nu rnu
+" TODO: Relative line numbers
+" set number relativenumber
+" set nu rnu
 
 " Show file stats
 set ruler
+
+" Path resolution
+set path=.,src,app,test
+set suffixesadd=.js,.jsx,.ts,.tsx
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
@@ -191,6 +200,8 @@ let g:coc_global_extensions = [
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -202,6 +213,15 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" TODO: Map this to <CR> instead of <C-i>
+" Make <C-i> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <C-i> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " Ruby
-nnoremap <leader>rt :!rake test TEST=%<CR>
+nnoremap <leader>rt :!rails test %<CR>
 nnoremap <leader>rc :!rubocop -a %<CR>
+
+" vim-closetag
+let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx'
