@@ -220,6 +220,9 @@ inoremap <silent><expr> <C-i> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Ruby
+" TODO: Uncomment for work computer
+" nnoremap <leader>rt :!docker exec -ti rails-api rails test %<CR>
+" nnoremap <leader>rc :!docker exec -ti rails-api rubocop -a %<CR>
 nnoremap <leader>rt :!rails test %<CR>
 nnoremap <leader>rc :!rubocop -a %<CR>
 
