@@ -225,3 +225,4 @@ nnoremap <leader>rc :!rubocop -a %<CR>
 
 " vim-closetag
 let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx'
+
