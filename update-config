@@ -1,15 +1,15 @@
 #!/bin/bash
 
-cp ~/.vimrc ~/dev-config/.vimrc
+cp ~/.vimrc ~/dev-config/vimrc
 echo "Copied .vimrc file"
 
-cp ~/.zshrc ~/dev-config/.zshrc
+cp ~/.zshrc ~/dev-config/zshrc
 echo "Copied .zshrc file"
 
 cp -R ~/.zsh ~/dev-config/
 echo "Copied .zsh directory"
 
-cp ~/.vim/coc-settings.json ~/dev-config/.vim/coc-settings.json
+cp ~/.vim/coc-settings.json ~/dev-config/coc-settings.json
 echo "Copied coc-settings.json file"
 
 echo "Finished update!"
