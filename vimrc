@@ -27,11 +27,11 @@ call plug#end()
 " Turn on syntax highlighting
 syntax on
 
-" Use new regular expression engine
-set re=0
-
 " For plugins to load correctly
 filetype plugin indent on
+
+" Use new regular expression engine
+set re=0
 
 " Pick a leader key
 let mapleader = ","
@@ -42,15 +42,11 @@ set modelines=0
 " Show line numbers
 set number
 
-" TODO: Relative line numbers
-" set number relativenumber
-" set nu rnu
-
 " Show file stats
 set ruler
 
 " Path resolution
-set path=.,src,app,test
+set path=.,src,app 
 set suffixesadd=.js,.jsx,.ts,.tsx
 
 " Blink cursor on error instead of beeping (grr)
@@ -100,7 +96,9 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
-map <leader><space> :let @/=''<cr> " clear search
+
+ " Clear search
+map <leader><space> :let @/=''<cr>
 
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
@@ -212,12 +210,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" TODO: Map this to <CR> instead of <C-i>
-" Make <C-i> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <C-i> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Ruby
 " TODO: Uncomment for work computer
