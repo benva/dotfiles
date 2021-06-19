@@ -66,5 +66,13 @@ echo "Installing Ruby Gems"
 
 gem install solargraph
 
+
+# ========================
+# GIT
+# ========================
+echo "Installing Git config"
+
+cp ~/dev-config/gitconfig ~/.gitconfig
+
 echo "Finished setup!"
 

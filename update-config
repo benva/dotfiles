@@ -9,4 +9,7 @@ echo "Copied .zshrc file"
 cp ~/.vim/coc-settings.json ~/dev-config/coc-settings.json
 echo "Copied coc-settings.json file"
 
+cp ~/.gitconfig ~/dev-config/gitconfig
+echo "Copied .gitconfig file"
+
 echo "Finished update!"
