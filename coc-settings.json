@@ -3,7 +3,6 @@
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
-  "tsserver.enableJavascript": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
     "css",

@@ -184,7 +184,7 @@ inoremap <Up> <C-o>:echo "No Up for you!"<CR>
 " vim-fugitive
 nnoremap <leader>g :G<CR>
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Git blame<CR>
 
 " coc.nvim
 let g:coc_global_extensions = [
@@ -214,9 +214,8 @@ endfunction
 " Ruby
 " TODO: Uncomment for work computer
 " nnoremap <leader>rt :!docker exec -ti rails-api rails test %<CR>
-" nnoremap <leader>rc :!docker exec -ti rails-api rubocop -a %<CR>
 nnoremap <leader>rt :!rails test %<CR>
-nnoremap <leader>rc :!rubocop -a %<CR>
+nnoremap <leader>rc :call CocActionAsync('format')<CR>
 
 " vim-closetag
 let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx'
