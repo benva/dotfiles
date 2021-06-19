@@ -22,6 +22,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -185,6 +186,7 @@ inoremap <Up> <C-o>:echo "No Up for you!"<CR>
 nnoremap <leader>g :G<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Git blame<CR>
+let g:fugitive_pty = 0
 
 " coc.nvim
 let g:coc_global_extensions = [
