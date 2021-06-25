@@ -99,10 +99,13 @@ USER=``
 alias ip="cd $HOME/Work/inkblot-practice/"
 alias is="cd $HOME/Work/inkblot-services/"
 alias it="cd $HOME/Work/inkblot-therapy-v2/"
-alias im="cd $HOME/Work/inkblot-marketing/"
+alias ima="cd $HOME/Work/inkblot-marketing/"
 alias ib="cd $HOME/Work/marchel/"
+alias im"cd $HOME/Work/inkblot-mobile"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+export DISABLE_SPRING=true

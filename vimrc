@@ -34,6 +34,9 @@ filetype plugin indent on
 " Use new regular expression engine
 set re=0
 
+" Disable continuing comments on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Pick a leader key
 let mapleader = ","
 
@@ -47,7 +50,7 @@ set number
 set ruler
 
 " Path resolution
-set path=.,src,app 
+set path=.,src,app
 set suffixesadd=.js,.jsx,.ts,.tsx
 
 " Blink cursor on error instead of beeping (grr)
@@ -71,6 +74,14 @@ set scrolloff=3
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
+
+" Keep cursor centered
+nnoremap G Gzz
+augroup VCenterCursor
+  au!
+  au BufEnter,WinEnter,WinNew,VimResized *,*.*
+        \ let &scrolloff=winheight(win_getid())/2
+augroup END
 
 " Move up/down editor lines
 nnoremap j gj
@@ -157,6 +168,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline_section_z = airline#section#create_right(['%p%%', '%l/%L'])
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -193,6 +205,7 @@ let g:coc_global_extensions = [
 \ 'coc-css',
 \ 'coc-json',
 \ 'coc-eslint',
+\ 'coc-prettier',
 \ 'coc-html',
 \ 'coc-solargraph',
 \ 'coc-yaml',
