@@ -7,6 +7,7 @@ filetype off
 " Load plugins here
 call plug#begin()
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'vim-airline/vim-airline'
@@ -117,16 +118,6 @@ inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 
-" Formatting
-map <leader>q gqip
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
-
 " Disable swap file creation
 set noswapfile
 
@@ -145,11 +136,14 @@ set cursorline
 " Open new tab
 nnoremap <leader>t :tabnew<CR>
 
+" Open new vertical split
+nnoremap <leader>v :vnew<CR>
+
 " Copy file relative path
 nnoremap <leader>cf :let @*=expand("%")<CR>
 
 " Edit .vimrc file
-nnoremap <leader>v :tabe ~/.vimrc<CR>
+nnoremap <leader>ev :tabe ~/.vimrc<CR>
 
 " Color scheme (terminal)
 set t_Co=256
@@ -157,7 +151,7 @@ set background=dark
 autocmd vimenter * ++nested colorscheme gruvbox
 
 " NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeFind<CR>
 
 " vim-airline
 let g:airline_theme = 'minimalist'
@@ -168,7 +162,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline_section_z = airline#section#create_right(['%p%%', '%l/%L'])
+let g:airline_section_z = airline#section#create_right(['%c', '%l/%L', '%p%%'])
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
