@@ -12,6 +12,7 @@ brew install git \
   ranger \
   ripgrep \
   ruby \
+  vim \
   zsh
 
 brew install --cask amethyst \

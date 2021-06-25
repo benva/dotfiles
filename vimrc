@@ -24,6 +24,7 @@ Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -143,7 +144,7 @@ nnoremap <leader>v :vnew<CR>
 nnoremap <leader>cf :let @*=expand("%")<CR>
 
 " Edit .vimrc file
-nnoremap <leader>ev :tabe ~/.vimrc<CR>
+nnoremap <leader>ev :e ~/.vimrc<CR>
 
 " Color scheme (terminal)
 set t_Co=256
@@ -229,3 +230,7 @@ nnoremap <leader>rc :call CocActionAsync('format')<CR>
 " vim-closetag
 let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx'
 
+" indentLine
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_char = '·'
