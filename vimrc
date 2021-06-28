@@ -25,6 +25,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -50,6 +51,9 @@ set number
 
 " Show file stats
 set ruler
+
+" Change update time
+set updatetime=100
 
 " Path resolution
 set path=.,src,app
@@ -134,6 +138,10 @@ set splitright
 " Highlight current cursor line
 set cursorline
 
+" Relative line numbers
+set number relativenumber
+set nu rnu
+
 " Open new tab
 nnoremap <leader>t :tabnew<CR>
 
@@ -146,6 +154,9 @@ nnoremap <leader>cf :let @*=expand("%")<CR>
 " Edit .vimrc file
 nnoremap <leader>ev :e ~/.vimrc<CR>
 
+" Source .vimrc file
+nnoremap <leader>sv :source ~/.vimrc<CR>
+
 " Color scheme (terminal)
 set t_Co=256
 set background=dark
@@ -153,6 +164,7 @@ autocmd vimenter * ++nested colorscheme gruvbox
 
 " NERDTree
 nnoremap <C-t> :NERDTreeFind<CR>
+let g:NERDTreeWinPos = "right"
 
 " vim-airline
 let g:airline_theme = 'minimalist'
@@ -190,7 +202,7 @@ vnoremap <Up> :<C-u>echo "No Up for you!"<CR>
 inoremap <Up> <C-o>:echo "No Up for you!"<CR>
 
 " vim-fugitive
-nnoremap <leader>g :G<CR>
+nnoremap <leader>g :vert G<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Git blame<CR>
 let g:fugitive_pty = 0
@@ -200,11 +212,11 @@ let g:coc_global_extensions = [
 \ 'coc-css',
 \ 'coc-json',
 \ 'coc-eslint',
-\ 'coc-prettier',
 \ 'coc-html',
 \ 'coc-solargraph',
 \ 'coc-yaml',
 \ 'coc-tsserver',
+\ 'coc-prettier',
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -223,8 +235,8 @@ endfunction
 
 " Ruby
 " TODO: Uncomment for work computer
-" nnoremap <leader>rt :!docker exec -ti rails-api rails test %<CR>
-nnoremap <leader>rt :!rails test %<CR>
+" nnoremap <leader>rt :vert term docker exec -ti rails-api rails test %<CR>
+nnoremap <leader>rt :vert term rails test %<CR>
 nnoremap <leader>rc :call CocActionAsync('format')<CR>
 
 " vim-closetag

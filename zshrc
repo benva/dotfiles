@@ -101,7 +101,12 @@ alias is="cd $HOME/Work/inkblot-services/"
 alias it="cd $HOME/Work/inkblot-therapy-v2/"
 alias ima="cd $HOME/Work/inkblot-marketing/"
 alias ib="cd $HOME/Work/marchel/"
-alias im"cd $HOME/Work/inkblot-mobile"
+alias im="cd $HOME/Work/inkblot-mobile"
+
+# Rails
+alias rc="rails console"
+alias rs="rails server"
+alias rdc="rails dbconsole"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
