@@ -19,13 +19,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-endwise'
-Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -163,7 +163,7 @@ set background=dark
 autocmd vimenter * ++nested colorscheme gruvbox
 
 " NERDTree
-nnoremap <C-t> :NERDTreeFind<CR>
+nnoremap <silent> <expr> <C-t> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeWinPos = "right"
 
 " vim-airline
@@ -240,7 +240,7 @@ nnoremap <leader>rt :vert term rails test %<CR>
 nnoremap <leader>rc :call CocActionAsync('format')<CR>
 
 " vim-closetag
-let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx'
+let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx,*.erb'
 
 " indentLine
 let g:indentLine_leadingSpaceEnabled = 1
