@@ -56,8 +56,8 @@ set ruler
 set updatetime=100
 
 " Path resolution
-set path=.,src,app
-set suffixesadd=.js,.jsx,.ts,.tsx
+set path=.,src,app,app/**/,lib
+set suffixesadd=.js,.jsx,.ts,.tsx,.rb
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
