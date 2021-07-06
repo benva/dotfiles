@@ -26,6 +26,7 @@ Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-test/vim-test'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -233,10 +234,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Ruby
-" TODO: Uncomment for work computer
-" nnoremap <leader>rt :vert term docker exec -ti rails-api rails test %<CR>
-nnoremap <leader>rt :vert term rails test %<CR>
+" Format Ruby code
 nnoremap <leader>rc :call CocActionAsync('format')<CR>
 
 " vim-closetag
@@ -246,3 +244,15 @@ let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx,*.erb'
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_char = '·'
+
+" vim-test
+" TODO: Use custom strategy to get it working in docker on work computer
+" https://github.com/vim-test/vim-test#custom-strategies
+" nnoremap <leader>rt :vert term docker exec -ti rails-api rails test %<CR>
+nnoremap <leader>rf :TestFile<CR>
+nnoremap <leader>rs :TestSuite<CR>
+nnoremap <leader>rl :TestLast<CR>
+nnoremap <leader>rt :TestNearest<CR>
+let test#strategy = "vimterminal"
+let test#vim#term_position = "vert"
+
