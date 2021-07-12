@@ -27,6 +27,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-test/vim-test'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 call plug#end()
 
 " Turn on syntax highlighting
@@ -251,7 +252,7 @@ let g:indentLine_char = '·'
 " nnoremap <leader>rt :vert term docker exec -ti rails-api rails test %<CR>
 nnoremap <leader>rf :TestFile<CR>
 nnoremap <leader>rs :TestSuite<CR>
-nnoremap <leader>rl :TestLast<CR>
+nnoremap <leader>rr :TestLast<CR>
 nnoremap <leader>rt :TestNearest<CR>
 let test#strategy = "vimterminal"
 let test#vim#term_position = "vert"
