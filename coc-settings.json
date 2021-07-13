@@ -7,7 +7,6 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
     "css",
-    "ruby",
     "json",
     "scss"
   ]

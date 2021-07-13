@@ -112,5 +112,5 @@ alias rdc="docker exec-ti rails-api rails dbconsole"
 
 # Docker aliases
 alias dcd="docker compose down"
-alias dcu="docker compose up -d"
+alias dcu="docker compose up"
 alias dce="docker compose exec api"
