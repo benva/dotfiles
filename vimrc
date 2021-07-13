@@ -239,7 +239,7 @@ endfunction
 nnoremap <leader>rc :call CocActionAsync('format')<CR>
 
 " vim-closetag
-let g:closetag_filenames = '*.js,*.jsx,*.ts,*.tsx,*.erb'
+let g:closetag_filenames = '*.js,*.jsx,*.erb'
 
 " indentLine
 let g:indentLine_leadingSpaceEnabled = 1

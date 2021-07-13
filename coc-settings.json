@@ -4,6 +4,7 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
+  "typescript.autoClosingTags": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "html",
     "css",
