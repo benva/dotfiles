@@ -93,24 +93,24 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-USER=``
+export DEFAULT_USER="$(whoami)"
 
-# INKBLOT DIRECTORIES
+# rbenv
+eval "$(rbenv init -)"
+
+# Inkblot directories
 alias ip="cd $HOME/Work/inkblot-practice/"
 alias is="cd $HOME/Work/inkblot-services/"
 alias it="cd $HOME/Work/inkblot-therapy-v2/"
 alias ima="cd $HOME/Work/inkblot-marketing/"
 alias ib="cd $HOME/Work/marchel/"
-alias im="cd $HOME/Work/inkblot-mobile"
+alias im="cd $HOME/Work/inkblot-mobile/"
 
-# Rails
-alias rc="rails console"
-alias rs="rails server"
-alias rdc="rails dbconsole"
+# Rails aliases
+alias rc="docker exec -ti rails-api rails console"
+alias rdc="docker exec-ti rails-api rails dbconsole"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-export DISABLE_SPRING=true
+# Docker aliases
+alias dcd="docker compose down"
+alias dcu="docker compose up -d"
+alias dce="docker compose exec api"

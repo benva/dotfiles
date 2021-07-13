@@ -247,9 +247,7 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_char = '·'
 
 " vim-test
-" TODO: Use custom strategy to get it working in docker on work computer
-" https://github.com/vim-test/vim-test#custom-strategies
-" nnoremap <leader>rt :vert term docker exec -ti rails-api rails test %<CR>
+let test#ruby#rails#executable='docker exec -ti rails-api rails test'
 nnoremap <leader>rf :TestFile<CR>
 nnoremap <leader>rs :TestSuite<CR>
 nnoremap <leader>rr :TestLast<CR>
