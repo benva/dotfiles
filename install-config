@@ -8,17 +8,14 @@ echo "Installing Homebrew"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install git \
-  node@14 \
   ranger \
   ripgrep \
-  ruby \
   vim \
   zsh
 
 brew install --cask amethyst \
   docker \
-  iterm2 \
-  react-native-debugger
+  iterm2 
 
 # ========================
 # ZSH
@@ -59,14 +56,6 @@ cp ~/dev-config/vimrc ~/.vimrc
 cp ~/dev-config/coc-settings.json ~/.vim/coc-settings.json
 
 vim -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
-
-# ========================
-# RUBY GEMS
-# ========================
-echo "Installing Ruby Gems"
-
-gem install solargraph
-
 
 # ========================
 # GIT
