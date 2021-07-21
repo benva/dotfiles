@@ -107,8 +107,8 @@ alias ib="cd $HOME/Work/marchel/"
 alias im="cd $HOME/Work/inkblot-mobile/"
 
 # Rails aliases
-alias rc="docker exec -ti rails-api rails console"
-alias rdc="docker exec-ti rails-api rails dbconsole"
+alias rc="docker compose exec api rails console"
+alias rdc="docker compose exec api rails dbconsole"
 
 # Docker aliases
 alias dcd="docker compose down"

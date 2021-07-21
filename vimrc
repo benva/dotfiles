@@ -28,6 +28,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-test/vim-test'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'unblevable/quick-scope'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -247,7 +248,7 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_char = '·'
 
 " vim-test
-let test#ruby#rails#executable='docker exec -ti rails-api rails test'
+let test#ruby#rails#executable='docker compose exec api rails test'
 nnoremap <leader>rf :TestFile<CR>
 nnoremap <leader>rs :TestSuite<CR>
 nnoremap <leader>rr :TestLast<CR>
@@ -255,3 +256,5 @@ nnoremap <leader>rt :TestNearest<CR>
 let test#strategy = "vimterminal"
 let test#vim#term_position = "vert"
 
+" quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
