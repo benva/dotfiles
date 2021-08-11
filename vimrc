@@ -145,6 +145,9 @@ set cursorline
 set number relativenumber
 set nu rnu
 
+" Remap Y to y$
+nnoremap Y y$
+
 " Open new tab
 nnoremap <leader>t :tabnew<CR>
 
@@ -253,7 +256,8 @@ nnoremap <leader>rs :TestSuite<CR>
 nnoremap <leader>rr :TestLast<CR>
 nnoremap <leader>rt :TestNearest<CR>
 let test#strategy = "vimterminal"
-let test#vim#term_position = "20split"
+let test#vim#term_position = "vert"
+" let test#vim#term_position = "20split"
 
 " vim-http
 let g:vim_http_split_vertically = 1
