@@ -44,7 +44,7 @@ set re=0
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Pick a leader key
-let mapleader = ","
+let mapleader = "\\"
 
 " Security
 set modelines=0
