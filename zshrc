@@ -98,6 +98,9 @@ export DEFAULT_USER="$(whoami)"
 # rbenv
 eval "$(rbenv init -)"
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # Inkblot directories
 alias ip="cd $HOME/Work/inkblot-practice/"
 alias is="cd $HOME/Work/inkblot-services/"
