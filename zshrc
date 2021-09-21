@@ -114,9 +114,11 @@ alias rc="rails console"
 alias rdc="rails dbconsole"
 
 # Docker aliases
+alias dcb="docker compose build"
 alias dcd="docker compose down"
 alias dcu="docker compose up"
 alias dce="docker compose exec api"
+alias dps="docker ps"
 
 # Java
 export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
