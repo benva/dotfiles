@@ -154,6 +154,9 @@ nnoremap <leader>t :tabnew<CR>
 " Open new vertical split
 nnoremap <leader>v :vnew<CR>
 
+" Open a new terminal in vertical split
+nnoremap <leader>vt :vert term<CR>
+
 " Copy file relative path
 nnoremap <leader>cf :let @*=expand("%")<CR>
 
@@ -257,7 +260,6 @@ nnoremap <leader>rr :TestLast<CR>
 nnoremap <leader>rt :TestNearest<CR>
 let test#strategy = "vimterminal"
 let test#vim#term_position = "vert"
-" let test#vim#term_position = "20split"
 
 " vim-http
 let g:vim_http_split_vertically = 1
