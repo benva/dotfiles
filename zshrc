@@ -95,30 +95,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export DEFAULT_USER="$(whoami)"
 
-# rbenv
-eval "$(rbenv init -)"
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# Inkblot directories
-alias ip="cd $HOME/Work/inkblot-practice/"
-alias is="cd $HOME/Work/inkblot-services/"
-alias it="cd $HOME/Work/inkblot-therapy-v2/"
-alias ima="cd $HOME/Work/inkblot-marketing/"
-alias ib="cd $HOME/Work/marchel/"
-alias im="cd $HOME/Work/inkblot-mobile/"
-
-# Rails aliases
-alias rc="rails console"
-alias rdc="rails dbconsole"
-
 # Docker aliases
 alias dcb="docker compose build"
 alias dcd="docker compose down"
 alias dcu="docker compose up"
-alias dce="docker compose exec api"
 alias dps="docker ps"
-
-# Java
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home

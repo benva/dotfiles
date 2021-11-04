@@ -18,7 +18,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-endwise'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -27,7 +26,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-test/vim-test'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'nicwest/vim-http'
 call plug#end()
 
@@ -59,8 +57,8 @@ set ruler
 set updatetime=100
 
 " Path resolution
-set path=.,src,app,app/**/,lib
-set suffixesadd=.js,.jsx,.ts,.tsx,.rb
+set path=.,src
+set suffixesadd=.js,.jsx
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
@@ -214,16 +212,11 @@ inoremap <Up> <C-o>:echo "No Up for you!"<CR>
 nnoremap <leader>g :vert G<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Git blame<CR>
-let g:fugitive_pty = 0
+" let g:fugitive_pty = 0
 
 " coc.nvim
 let g:coc_global_extensions = [
-\ 'coc-css',
-\ 'coc-json',
 \ 'coc-eslint',
-\ 'coc-html',
-\ 'coc-solargraph',
-\ 'coc-yaml',
 \ 'coc-tsserver',
 \ 'coc-prettier',
 \ ]
@@ -246,7 +239,7 @@ endfunction
 nnoremap <leader>rc :call CocActionAsync('format')<CR>
 
 " vim-closetag
-let g:closetag_filenames = '*.js,*.jsx,*.erb'
+let g:closetag_filenames = '*.js,*.jsx'
 
 " indentLine
 let g:indentLine_leadingSpaceEnabled = 1

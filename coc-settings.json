@@ -1,14 +1,4 @@
 {
   "eslint.autoFixOnSave": true,
-  "solargraph.diagnostics": true,
-  "solargraph.autoformat": true,
-  "solargraph.formatting": true,
-  "solargraph.hover": true,
-  "typescript.autoClosingTags": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "css",
-    "json",
-    "scss"
-  ]
+  "coc.preferences.formatOnSaveFiletypes": ["json"]
 }
