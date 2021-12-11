@@ -6,27 +6,33 @@ filetype off
 
 " Load plugins here
 call plug#begin()
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Visual aesthetic
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+Plug 'morhetz/gruvbox'
+" File browsing
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Code completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Quality of life
 Plug 'tpope/vim-commentary'
-Plug 'morhetz/gruvbox'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
+" Testing
 Plug 'vim-test/vim-test'
-Plug 'nicwest/vim-http'
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+" JavaScript
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -34,6 +40,9 @@ syntax on
 
 " For plugins to load correctly
 filetype plugin indent on
+
+" Auto indent on new line
+set autoindent
 
 " Use new regular expression engine
 set re=0
@@ -58,7 +67,8 @@ set updatetime=100
 
 " Path resolution
 set path=.,src
-set suffixesadd=.js,.jsx
+set path+=**
+set suffixesadd=.js,.jsx,.ts,.tsx
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
@@ -152,9 +162,6 @@ nnoremap <leader>t :tabnew<CR>
 " Open new vertical split
 nnoremap <leader>v :vnew<CR>
 
-" Open a new terminal in vertical split
-nnoremap <leader>vt :vert term<CR>
-
 " Copy file relative path
 nnoremap <leader>cf :let @*=expand("%")<CR>
 
@@ -169,9 +176,24 @@ set t_Co=256
 set background=dark
 autocmd vimenter * ++nested colorscheme gruvbox
 
+" Stop using arrow keys
+nnoremap <Left> :echo "No Left for you!"<CR>
+vnoremap <Left> :<C-u>echo "No Left for you!"<CR>
+inoremap <Left> <C-o>:echo "No Left for you!"<CR>
+nnoremap <Right> :echo "No Right for you!"<CR>
+vnoremap <Right> :<C-u>echo "No Right for you!"<CR>
+inoremap <Right> <C-o>:echo "No Right for you!"<CR>
+" nnoremap <Down> :echo "No Down for you!"<CR>
+vnoremap <Down> :<C-u>echo "No Down for you!"<CR>
+inoremap <Down> <C-o>:echo "No Down for you!"<CR>
+" nnoremap <Up> :echo "No Up for you!"<CR>
+vnoremap <Up> :<C-u>echo "No Up for you!"<CR>
+inoremap <Up> <C-o>:echo "No Up for you!"<CR>
+
 " NERDTree
 nnoremap <silent> <expr> <C-t> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinSize=45
 
 " vim-airline
 let g:airline_theme = 'minimalist'
@@ -193,28 +215,30 @@ nmap <leader>5 <Plug>AirlineSelectTab5
 nnoremap <C-p> :GFiles --exclude-standard --others --cached<cr>
 nnoremap <C-f> :Rg<cr>
 nnoremap <C-h> :History<CR>
-
-" Stop using arrow keys
-nnoremap <Left> :echo "No Left for you!"<CR>
-vnoremap <Left> :<C-u>echo "No Left for you!"<CR>
-inoremap <Left> <C-o>:echo "No Left for you!"<CR>
-nnoremap <Right> :echo "No Right for you!"<CR>
-vnoremap <Right> :<C-u>echo "No Right for you!"<CR>
-inoremap <Right> <C-o>:echo "No Right for you!"<CR>
-nnoremap <Down> :echo "No Down for you!"<CR>
-vnoremap <Down> :<C-u>echo "No Down for you!"<CR>
-inoremap <Down> <C-o>:echo "No Down for you!"<CR>
-nnoremap <Up> :echo "No Up for you!"<CR>
-vnoremap <Up> :<C-u>echo "No Up for you!"<CR>
-inoremap <Up> <C-o>:echo "No Up for you!"<CR>
+let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
 
 " vim-fugitive
-nnoremap <leader>g :vert G<CR>
+nnoremap <leader>gg :vert G<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Git blame<CR>
-" let g:fugitive_pty = 0
 
 " coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
 let g:coc_global_extensions = [
 \ 'coc-eslint',
 \ 'coc-tsserver',
@@ -235,12 +259,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Format Ruby code
-nnoremap <leader>rc :call CocActionAsync('format')<CR>
-
-" vim-closetag
-let g:closetag_filenames = '*.js,*.jsx'
-
 " indentLine
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
@@ -253,7 +271,4 @@ nnoremap <leader>rr :TestLast<CR>
 nnoremap <leader>rt :TestNearest<CR>
 let test#strategy = "vimterminal"
 let test#vim#term_position = "vert"
-
-" vim-http
-let g:vim_http_split_vertically = 1
-let g:vim_http_tempbuffer = 1
+let test#javascript#jest#executable = "TZ=UTC NODE_ENV=test yarn run jest --config=jest.config.js --no-cache"
