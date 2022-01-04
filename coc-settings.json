@@ -1,5 +1,6 @@
 {
     "eslint.autoFixOnSave": true,
-    "coc.preferences.formatOnSaveFiletypes": ["json"],
+    "eslint.format.enable": true,
+    "javascript.autoClosingTags": true,
     "typescript.autoClosingTags": true
 }

@@ -8,3 +8,5 @@
 	rebase = false
 [merge]
 	tool = vimdiff
+[core]
+	excludesfile = /Users/benjaminasals/.gitignore_global_tophat

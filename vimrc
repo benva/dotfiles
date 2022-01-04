@@ -4,6 +4,9 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
+" vim-polyglot
+let g:polyglot_disabled = ['markdown']
+
 " Load plugins here
 call plug#begin()
 " Visual aesthetic
@@ -30,9 +33,8 @@ Plug 'vim-test/vim-test'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-" JavaScript
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
+" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -159,9 +161,6 @@ nnoremap Y y$
 " Open new tab
 nnoremap <leader>t :tabnew<CR>
 
-" Open new vertical split
-nnoremap <leader>v :vnew<CR>
-
 " Copy file relative path
 nnoremap <leader>cf :let @*=expand("%")<CR>
 
@@ -240,9 +239,8 @@ function! s:show_documentation()
 endfunction
 
 let g:coc_global_extensions = [
-\ 'coc-eslint',
+\ 'coc-eslint8',
 \ 'coc-tsserver',
-\ 'coc-prettier',
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
