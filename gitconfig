@@ -10,3 +10,5 @@
 	tool = vimdiff
 [core]
 	excludesfile = /Users/benjaminasals/.gitignore_global_tophat
+[mergetool]
+	keepBackup = false
