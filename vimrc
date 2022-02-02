@@ -70,7 +70,7 @@ set updatetime=100
 " Path resolution
 set path=.,src
 set path+=**
-set suffixesadd=.js,.jsx,.ts,.tsx
+set suffixesadd=.js,.jsx,.ts,.tsx,.py
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
@@ -170,6 +170,9 @@ nnoremap <leader>ev :e ~/.vimrc<CR>
 " Source .vimrc file
 nnoremap <leader>sv :source ~/.vimrc<CR>
 
+" Save file
+nnoremap <C-s> :w<CR>
+
 " Color scheme (terminal)
 set t_Co=256
 set background=dark
@@ -239,8 +242,9 @@ function! s:show_documentation()
 endfunction
 
 let g:coc_global_extensions = [
-\ 'coc-eslint8',
+\ 'coc-eslint',
 \ 'coc-tsserver',
+\ 'coc-pyright'
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

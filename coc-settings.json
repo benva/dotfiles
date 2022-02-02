@@ -2,5 +2,7 @@
     "eslint.autoFixOnSave": true,
     "eslint.format.enable": true,
     "javascript.autoClosingTags": true,
-    "typescript.autoClosingTags": true
+    "typescript.autoClosingTags": true,
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": true
 }
