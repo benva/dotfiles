@@ -1,9 +1,9 @@
-# dev-config
+# dotfiles
 
 ## Install
 
 ```
-cd dev-config
+cd dotfiles
 ./install-config
 ```
 
