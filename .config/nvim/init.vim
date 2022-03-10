@@ -165,10 +165,10 @@ nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>cf :let @*=expand("%")<CR>
 
 " Edit .vimrc file
-nnoremap <leader>ev :e ~/.vimrc<CR>
+nnoremap <leader>ev :e ~/.config/nvim/init.vim<CR>
 
 " Source .vimrc file
-nnoremap <leader>sv :source ~/.vimrc<CR>
+nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 
 " Save file
 nnoremap <C-s> :w<CR>
@@ -274,3 +274,4 @@ nnoremap <leader>rt :TestNearest<CR>
 let test#strategy = "vimterminal"
 let test#vim#term_position = "vert"
 let test#javascript#jest#executable = "TZ=UTC NODE_ENV=test yarn run jest --config=jest.config.js --no-cache"
+
