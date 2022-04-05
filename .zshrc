@@ -109,8 +109,4 @@ prompt_context() {
   fi
 }
 
-DISABLE_AUTO_UPDATE=true
-DISABLE_UPDATE_PROMPT=true
-source ~/.tophat-devrc
-
 alias dps="docker ps"
