@@ -277,7 +277,8 @@ nnoremap <leader>rf :TestFile<CR>
 nnoremap <leader>rs :TestSuite<CR>
 nnoremap <leader>rr :TestLast<CR>
 nnoremap <leader>rt :TestNearest<CR>
-let test#strategy = "vimterminal"
-let test#vim#term_position = "vert"
+nnoremap <leader>rw :vsplit term://make test-watch JEST_TESTFILES=%<CR>
+let test#neovim#start_normal = 1
+let test#strategy = "neovim"
+let test#neovim#term_position = "vert"
 let test#javascript#jest#executable = "TZ=UTC NODE_ENV=test yarn run jest --config=jest.config.js --no-cache"
-
