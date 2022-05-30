@@ -103,10 +103,15 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)codespaces"
-  fi
-}
+export DEFAULT_USER="$(whoami)"
 
 alias dps="docker ps"
+alias vim="nvim"
+
+eval "$(fasd --init zsh-hook)"
+function z {
+  if  selected=$(fasd -dlR | fzf --no-sort --height 10%)  ; then
+      cd $selected
+  fi
+}
+bindkey -s "^[r" "z\n"
