@@ -47,7 +47,7 @@ echo "Installing config files"
 # zsh
 cp ~/dotfiles/.zshrc ~/.zshrc
 
-cp -R ~/.dotfiles/.zsh ~
+cp -R ~/dotfiles/.zsh ~
 
 cp ~/dotfiles/.zlogin ~/.zlogin
 

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cp ~/.zshrc ~/dotfiles/.zshrc
+
+cp -R ~/.zsh ~/dotfiles
+
+cp ~/.zlogin ~/dotfiles/.zlogin
+
+# git
+cp ~/.gitconfig ~/dotfiles/.gitconfig
+
+# neovim
+cp ~/.config/nvim/init.vim ~/dotfiles/init.vim
+
+cp ~/.config/nvim/coc-settings.json ~/dotfiles/coc-setting.json
+
+echo "Finished update!"
