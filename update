@@ -2,8 +2,6 @@
 
 cp ~/.zshrc ~/dotfiles/.zshrc
 
-cp -R ~/.zsh ~/dotfiles
-
 cp ~/.zlogin ~/dotfiles/.zlogin
 
 # git
