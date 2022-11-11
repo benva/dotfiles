@@ -4,11 +4,11 @@
 
 ```
 cd dotfiles
-./install-config
+./install
 ```
 
 ## Update
 
 ```
-./update-config
+./update
 ```
