@@ -12,6 +12,6 @@ cp ~/.gitconfig ~/dotfiles/.gitconfig
 # neovim
 cp ~/.config/nvim/init.vim ~/dotfiles/init.vim
 
-cp ~/.config/nvim/coc-settings.json ~/dotfiles/coc-setting.json
+cp ~/.config/nvim/coc-settings.json ~/dotfiles/coc-settings.json
 
 echo "Finished update!"
