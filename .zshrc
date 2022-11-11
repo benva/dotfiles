@@ -109,15 +109,6 @@ alias dps="docker ps"
 alias dsls="docker service ls"
 alias vim="nvim"
 
-# Top Hat specific
-unalias rd
-alias boot='. script/bootstrap'
-alias cs-reset='inv docker.stop; deactivate; rm -rf content-service.venv/; boot; inv docker.start; inv docker.migrate'
-
-tw () {
-  make test-watch JEST_TESTFILES="$1"
-}
-
 # Most used directories
 eval "$(fasd --init zsh-hook)"
 function z {
@@ -126,6 +117,15 @@ function z {
   fi
 }
 bindkey -s "^[r" "z\n"
+
+# Top Hat specific
+unalias rd
+alias boot='. script/bootstrap'
+alias cs-reset='inv docker.stop; deactivate; rm -rf content-service.venv/; boot; inv docker.start; inv docker.migrate'
+
+tw () {
+  make test-watch JEST_TESTFILES="$1"
+}
 
 # Created by `userpath` on 2022-05-27 18:26:21
 export PATH="$PATH:/Users/benjaminasals/.local/bin:/Users/benjaminasals/Library/Python/3.8/bin"
