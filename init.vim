@@ -179,6 +179,7 @@ nnoremap <leader>ev :e ~/.config/nvim/init.vim<CR>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 
 " Save file
+nnoremap <leader>s :noa w<CR>
 nnoremap <C-s> :w<CR>
 
 " Color scheme (terminal)
@@ -225,6 +226,7 @@ nmap <leader>5 <Plug>AirlineSelectTab5
 nnoremap <C-p> :GFiles --exclude-standard --others --cached<cr>
 nnoremap <C-f> :Rg<cr>
 nnoremap <C-h> :History<CR>
+let g:fzf_preview_window = ['hidden', 'ctrl-/']
 let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
 
 " vim-fugitive
@@ -282,7 +284,7 @@ nnoremap <silent><nowait><expr> <C-u> coc#float#has_scroll() ? coc#float#scroll(
 inoremap <silent><nowait><expr> <C-d> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <silent><nowait><expr> <C-u> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 vnoremap <silent><nowait><expr> <C-d> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-d>"
-vnoremap <silent><nowait><expr> <C-d> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-u>"
+vnoremap <silent><nowait><expr> <C-u> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-u>"
 
 " indentLine
 let g:indentLine_leadingSpaceEnabled = 1

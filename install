@@ -10,6 +10,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/in
 brew install fasd \
   fzf \
   git \
+  git-delta \
   neovim \
   ripgrep \
   zsh
