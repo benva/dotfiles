@@ -10,15 +10,14 @@
 	tool = nvimdiff
 	conflictstyle = diff3
 [core]
-	excludesfile = /Users/benjaminasals/.gitignore_global_tophat
 	pager = delta
 [mergetool]
 	keepBackup = false
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	navigate = true    # use n and N to move between diff sections
-	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	navigate = true
+	light = false
 	side-by-side = true
 [diff]
 	colorMoved = default

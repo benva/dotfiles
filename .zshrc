@@ -116,4 +116,3 @@ function z {
       cd $selected
   fi
 }
-bindkey -s "^[r" "z\n"
