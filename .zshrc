@@ -117,36 +117,3 @@ function z {
   fi
 }
 bindkey -s "^[r" "z\n"
-
-# Top Hat specific
-unalias rd
-alias boot='. script/bootstrap'
-alias cs-reset='inv docker.stop; deactivate; rm -rf content-service.venv/; boot; inv docker.start; inv docker.migrate'
-
-tw () {
-  make test-watch JEST_TESTFILES="$1"
-}
-
-# Created by `userpath` on 2022-05-27 18:26:21
-export PATH="$PATH:/Users/benjaminasals/.local/bin:/Users/benjaminasals/Library/Python/3.8/bin"
-. /Users/benjaminasals/.tophat/tophat-functions.sh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# BEGIN pyenv OSX MANAGED BLOCK
-export LDFLAGS="-L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl/include"
-# END pyenv OSX MANAGED BLOCK
-# BEGIN pyenv MANAGED BLOCK
-export PYENV_ROOT=/Users/benjaminasals/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
-# END pyenv MANAGED BLOCK
-# BEGIN tophat-dev completions MANAGED BLOCK
-. ~/.tophat/inv-completion.zsh
-. ~/.tophat/invoke-completion.zsh
-. ~/.tophat/tophat-completion.zsh
-. ~/.tophat/th-completion.zsh
-. ~/.tophat/thkong-completion.zsh
-# END tophat-dev completions MANAGED BLOCK
