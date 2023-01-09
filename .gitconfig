@@ -11,6 +11,7 @@
 	conflictstyle = diff3
 [core]
 	pager = delta
+	editor = nvim
 [mergetool]
 	keepBackup = false
 [interactive]
