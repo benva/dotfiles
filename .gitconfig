@@ -10,6 +10,7 @@
 	tool = nvimdiff
 	conflictstyle = diff3
 [core]
+	excludesfile = /Users/benjaminasals/.gitignore_global_tophat
 	pager = delta
 	editor = nvim
 [mergetool]
@@ -22,3 +23,5 @@
 	side-by-side = true
 [diff]
 	colorMoved = default
+[push]
+	autoSetupRemote = true

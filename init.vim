@@ -39,6 +39,7 @@ Plug 'vim-test/vim-test'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'hotwatermorning/auto-git-diff'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 call plug#end()
@@ -103,7 +104,6 @@ set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
 
 " Keep cursor centered
-nnoremap G Gzz
 augroup VCenterCursor
   au!
   au BufEnter,WinEnter,WinNew,VimResized *,*.*
@@ -113,6 +113,7 @@ augroup END
 " Move up/down editor lines
 nnoremap j gj
 nnoremap k gk
+nnoremap G Gzz
 
 " Allow hidden buffers
 set hidden
