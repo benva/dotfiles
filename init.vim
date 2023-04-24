@@ -34,12 +34,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
-" Testing
-Plug 'vim-test/vim-test'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'hotwatermorning/auto-git-diff'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 call plug#end()
@@ -88,8 +85,6 @@ set encoding=utf-8
 " Whitespace
 set wrap
 set textwidth=79
-" Removing the 't' stops new lines from breaking to a newline after 80 characters
-" set formatoptions=tcqrn1
 set formatoptions=cqrn1
 set tabstop=2
 set shiftwidth=2
@@ -232,7 +227,6 @@ let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
 
 " vim-fugitive
 nnoremap <leader>gg :vert G<CR>
-nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Git blame<CR>
 
 " coc.nvim
@@ -291,14 +285,3 @@ vnoremap <silent><nowait><expr> <C-u> coc#float#has_scroll() ? coc#float#scroll(
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_char = '·'
-
-" vim-test
-nnoremap <leader>rf :TestFile<CR>
-nnoremap <leader>rs :TestSuite<CR>
-nnoremap <leader>rr :TestLast<CR>
-nnoremap <leader>rt :TestNearest<CR>
-let test#neovim#start_normal = 1
-let test#strategy = "neovim"
-let test#neovim#term_position = "vert"
-let test#javascript#jest#executable = "TZ=UTC yarn node --unhandled-rejections=warn $(yarn bin jest) --config=jest.config.ts"
-let test#python#pytest#executable = "./pytest.docker -s"
