@@ -1,7 +1,6 @@
 [user]
 	email = benjamin.asals@gmail.com
 	name = Ben Verna-Asals
-	password = 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
 [credential]
 	helper = store
 [pull]
@@ -10,7 +9,6 @@
 	tool = nvimdiff
 	conflictstyle = diff3
 [core]
-	excludesfile = /Users/benjaminasals/.gitignore_global_tophat
 	pager = delta
 	editor = nvim
 [mergetool]
