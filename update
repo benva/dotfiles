@@ -1,7 +1,7 @@
 #!/bin/bash
 
+# zsh
 cp ~/.zshrc ~/dotfiles/.zshrc
-
 cp ~/.zlogin ~/dotfiles/.zlogin
 
 # git
@@ -9,7 +9,6 @@ cp ~/.gitconfig ~/dotfiles/.gitconfig
 
 # neovim
 cp ~/.config/nvim/init.vim ~/dotfiles/init.vim
-
 cp ~/.config/nvim/coc-settings.json ~/dotfiles/coc-settings.json
 
 echo "Finished update!"
