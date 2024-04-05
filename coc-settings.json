@@ -2,6 +2,7 @@
     "coc.preferences.formatOnSaveFiletypes": ["python"],
     "python.formatting.provider":  "black",
     "python.linting.pylintEnabled": false,
+    "pyright.inlayHints.variableTypes": false,
     "eslint.autoFixOnSave": true,
     "eslint.format.enable": true,
     "javascript.autoClosingTags": true,

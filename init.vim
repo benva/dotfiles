@@ -228,6 +228,8 @@ let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
 " vim-fugitive
 nnoremap <leader>gg :vert G<CR>
 nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gl :vert Git log --oneline --decorate --graph<CR>
 
 " coc.nvim
 nmap <silent> gd <Plug>(coc-definition)

@@ -105,9 +105,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export DEFAULT_USER="$(whoami)"
 
-alias dps="docker ps"
-alias dsls="docker service ls"
 alias vim="nvim"
+alias p="python3"
 
 # Most used directories
 eval "$(fasd --init zsh-hook)"
