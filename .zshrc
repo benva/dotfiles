@@ -8,7 +8,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 plugins=(
-	git
+  git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -19,22 +19,15 @@ alias vim="nvim"
 alias p="python3"
 alias y="yt-dlp"
 
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
+alias dce="docker compose exec"
+alias dps="docker ps -a"
+
 # Most used directories
 eval "$(fasd --init zsh-hook)"
 function z {
   if  selected=$(fasd -dlR | fzf --no-sort --height 10%)  ; then
-      cd $selected
+    cd $selected
   fi
-}
-
-# Stretching
-function s {
-  source ~/.day
-
-  mpv ~/Movies/"$DAY"*.mp4
-
-  NEXT_DAY=$(((DAY + 1) % 3))
-  echo "DAY=$NEXT_DAY" > .day
-
-  echo "I hope you had a good stretch!"
 }
