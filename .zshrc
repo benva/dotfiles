@@ -18,7 +18,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias vim="nvim"
 alias p="python3"
 alias y="yt-dlp"
-alias pwc="cat ~/.pw | pbcopy"
 
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
