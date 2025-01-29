@@ -2,7 +2,6 @@
 
 # zsh
 cp ~/.zshrc ~/dotfiles/.zshrc
-cp ~/.zlogin ~/dotfiles/.zlogin
 
 # git
 cp ~/.gitconfig ~/dotfiles/.gitconfig

@@ -50,8 +50,6 @@ cp ~/dotfiles/.zshrc ~/.zshrc
 
 cp -R ~/dotfiles/.zsh ~
 
-cp ~/dotfiles/.zlogin ~/.zlogin
-
 # git
 cp ~/dotfiles/.gitconfig ~/.gitconfig
 
