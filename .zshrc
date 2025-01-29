@@ -19,10 +19,16 @@ alias vim="nvim"
 alias p="python3"
 alias y="yt-dlp"
 
+# Docker
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
 alias dce="docker compose exec"
 alias dps="docker ps -a"
+
+# Pants
+alias pf="pants fix"
+alias plc="pants lint check"
+alias pt="pants test"
 
 # Most used directories
 eval "$(fasd --init zsh-hook)"
@@ -31,3 +37,8 @@ function z {
     cd $selected
   fi
 }
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
