@@ -12,6 +12,7 @@ brew install fasd \
   git \
   git-delta \
   neovim \
+  pure \
   ripgrep \
   zsh
 
