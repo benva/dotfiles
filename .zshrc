@@ -2,7 +2,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme
-# export DEFAULT_USER="$(whoami)"
 ZSH_THEME=""
 autoload -U promptinit; promptinit
 prompt pure
@@ -18,12 +17,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias vim="nvim"
 alias p="python3"
 alias y="yt-dlp"
-
-# Docker
-alias dcu="docker compose up -d"
-alias dcd="docker compose down"
-alias dce="docker compose exec"
-alias dps="docker ps -a"
+alias cr="cat ~/.copyright | pbcopy"
 
 # Pants
 alias pf="pants fix"
