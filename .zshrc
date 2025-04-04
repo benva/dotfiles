@@ -13,6 +13,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 alias vim="nvim"
 alias p="python3"
@@ -20,8 +22,7 @@ alias y="yt-dlp"
 alias cr="cat ~/.copyright | pbcopy"
 
 # Pants
-alias pf="pants fix"
-alias plc="pants lint check"
+alias pflc="pants fix lint check"
 alias pt="pants test"
 
 # Most used directories
