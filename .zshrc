@@ -19,6 +19,7 @@ source <(fzf --zsh)
 alias vim="nvim"
 alias p="python3"
 alias y="yt-dlp"
+alias lg="lazygit"
 alias cr="cat ~/.copyright | pbcopy"
 
 # Pants

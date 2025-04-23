@@ -11,6 +11,7 @@ brew install fasd \
   fzf \
   git \
   git-delta \
+  lazygit \
   neovim \
   pure \
   ripgrep \
