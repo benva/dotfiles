@@ -16,8 +16,6 @@ endif
 " Load plugins here
 call plug#begin()
 " Visual aesthetic
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 " File browsing
 Plug 'preservim/nerdtree'
@@ -35,7 +33,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
 " Git
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
@@ -132,9 +129,6 @@ set ignorecase
 set smartcase
 set showmatch
 
- " Clear search
-map <leader><space> :let @/=''<cr>
-
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
@@ -158,6 +152,9 @@ set cursorline
 " Relative line numbers
 set number relativenumber
 set nu rnu
+
+ " Clear search
+map <leader><space> :let @/=''<cr>
 
 " Remap Y to y$
 nnoremap Y y$
@@ -183,40 +180,10 @@ set t_Co=256
 set background=dark
 autocmd vimenter * ++nested colorscheme gruvbox
 
-" Stop using arrow keys
-nnoremap <Left> :echo "No Left for you!"<CR>
-vnoremap <Left> :<C-u>echo "No Left for you!"<CR>
-inoremap <Left> <C-o>:echo "No Left for you!"<CR>
-nnoremap <Right> :echo "No Right for you!"<CR>
-vnoremap <Right> :<C-u>echo "No Right for you!"<CR>
-inoremap <Right> <C-o>:echo "No Right for you!"<CR>
-" nnoremap <Down> :echo "No Down for you!"<CR>
-vnoremap <Down> :<C-u>echo "No Down for you!"<CR>
-inoremap <Down> <C-o>:echo "No Down for you!"<CR>
-" nnoremap <Up> :echo "No Up for you!"<CR>
-vnoremap <Up> :<C-u>echo "No Up for you!"<CR>
-inoremap <Up> <C-o>:echo "No Up for you!"<CR>
-
 " NERDTree
 nnoremap <silent> <expr> <C-t> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeWinSize=45
-
-" vim-airline
-let g:airline_theme = 'minimalist'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline_section_z = airline#section#create_right(['%c', '%l/%L', '%p%%'])
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
 
 " FZF
 nnoremap <C-p> :GFiles --exclude-standard --others --cached<cr>
@@ -224,13 +191,6 @@ nnoremap <C-f> :Rg<cr>
 nnoremap <C-h> :History<CR>
 let g:fzf_preview_window = ['hidden', 'ctrl-/']
 let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
-
-" vim-fugitive
-nnoremap <leader>gg :vert G<CR>
-nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gl :vert Git log --oneline --decorate --graph<CR>
-command Gpushf :Git push --force-with-lease
 
 " coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
