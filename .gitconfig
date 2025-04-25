@@ -17,7 +17,7 @@
 	diffFilter = delta --color-only
 [delta]
 	navigate = true
-	light = false
+	dark = true
 	side-by-side = false
 [diff]
 	colorMoved = default
