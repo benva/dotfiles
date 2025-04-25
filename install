@@ -23,9 +23,11 @@ brew install --cask amethyst \
 # ========================
 # ZSH
 # ========================
-echo "Installing zsh"
+echo "Installing zsh and plugins"
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # ========================
 # POWERLINE FONTS
@@ -45,12 +47,10 @@ rm -rf fonts
 # ========================
 # CONFIG
 # ========================
-echo "Installing config files"
+echo "Copying config files"
 
 # zsh
 cp ~/dotfiles/.zshrc ~/.zshrc
-
-cp -R ~/dotfiles/.zsh ~
 
 # git
 cp ~/dotfiles/.gitconfig ~/.gitconfig

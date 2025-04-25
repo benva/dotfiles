@@ -1,30 +1,32 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+source $ZSH/oh-my-zsh.sh
+
 # Theme
 ZSH_THEME=""
 autoload -U promptinit; promptinit
 prompt pure
 
+# Plugins
 plugins=(
   git
+  zsh-autosuggestions
 )
-
-source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+# Personal aliases
 alias vim="nvim"
 alias p="python3"
 alias y="yt-dlp"
 alias lg="lazygit"
-alias cr="cat ~/.copyright | pbcopy"
 
-# Pants
+# Work aliases
 alias pflc="pants fix lint check"
 alias pt="pants test"
+alias cr="cat ~/.copyright | pbcopy"
 
 # Most used directories
 eval "$(fasd --init zsh-hook)"
