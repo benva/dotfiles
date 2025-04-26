@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-source $ZSH/oh-my-zsh.sh
 
 # Theme
 ZSH_THEME=""
@@ -13,6 +12,9 @@ plugins=(
   git
   zsh-autosuggestions
 )
+
+# This has to occur after initializing plugins
+source $ZSH/oh-my-zsh.sh
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
