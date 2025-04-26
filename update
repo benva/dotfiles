@@ -8,6 +8,7 @@ cp ~/.gitconfig ~/dotfiles/.gitconfig
 
 # neovim
 cp ~/.config/nvim/init.vim ~/dotfiles/init.vim
+cp ~/.config/nvim/coc-settings.json ~/dotfiles/coc-settings.json
 
 # lazygit
 cp ~/Library/Application\ Support/lazygit/config.yml ~/dotfiles/config.yml
