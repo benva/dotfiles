@@ -171,7 +171,6 @@ nnoremap <leader>ev :e ~/.config/nvim/init.vim<CR>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 
 " Save file
-nnoremap <leader>s :noa w<CR>
 nnoremap <C-s> :w<CR>
 
 " Theme
