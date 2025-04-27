@@ -190,7 +190,7 @@ nnoremap <C-p> :GFiles --exclude-standard --others --cached<cr>
 nnoremap <C-f> :Rg<cr>
 nnoremap <C-h> :History<CR>
 let g:fzf_preview_window = ['hidden', 'ctrl-/']
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.7 } }
+let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
 
 " indentLine
 let g:indentLine_leadingSpaceEnabled = 1
