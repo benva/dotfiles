@@ -42,8 +42,6 @@ Plug 'williamboman/mason-lspconfig.nvim'
 " Code completion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
 " Turn on syntax highlighting
@@ -209,55 +207,50 @@ lua << EOF
 -- Setup Mason
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "pyright" },
+  ensure_installed = { "pyright", "ruff" },
   automatic_installation = true,
 })
 
 -- Setup nvim-cmp
-local cmp = require'cmp'
+local cmp = require("cmp")
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif require('luasnip').expand_or_jumpable() then
-        require('luasnip').expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif require('luasnip').jumpable(-1) then
-        require('luasnip').jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
   }),
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = "nvim_lsp" },
+    { name = "buffer" },
+    { name = "path" },
   },
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- Keybindings for LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf }
+
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  end
+})
 
 -- Setup Pyright
-require('lspconfig').pyright.setup({
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lspconfig = require("lspconfig")
+lspconfig.pyright.setup({
   capabilities = capabilities,
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "strict",
+        typeCheckingMode = "off",
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = "workspace",
@@ -266,24 +259,23 @@ require('lspconfig').pyright.setup({
   }
 })
 
--- Keybindings for LSP
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local opts = { buffer = args.buf }
-
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  end
+-- Setup Ruff
+lspconfig.ruff.setup({
+  init_options = {
+    settings = {
+      enable = true,
+      -- configuration = "/Users/benva/Unify/pyproject.toml",
+    }
+  }
 })
 
--- Setup error display
+-- Setup diagnostics
 vim.diagnostic.config({
   virtual_text = {
     severity = vim.diagnostic.severity.WARNING,
   },
   signs = true,
-  underline = true,
+  underline = false,
   update_in_insert = false,
   severity_sort = true,
 })
