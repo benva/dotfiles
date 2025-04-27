@@ -57,7 +57,6 @@ cp ~/dotfiles/.gitconfig ~/.gitconfig
 
 # neovim
 cp ~/dotfiles/init.vim ~/.config/nvim/init.vim
-cp ~/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 
 # lazygit
 cp ~/dotfiles/config.yml ~/Library/Application\ Support/lazygit/config.yml

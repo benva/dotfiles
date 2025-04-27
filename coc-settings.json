@@ -1,7 +1,0 @@
-{
-    "coc.preferences.formatOnSaveFiletypes": ["python"],
-    "python.formatting.provider":  "black",
-    "python.analysis.diagnosticMode": "workspace",
-    "pyright.inlayHints.variableTypes": false,
-    "pyright.inlayHints.parameterTypes": false
-}
