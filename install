@@ -8,6 +8,7 @@ echo "Installing homebrew and specified packages"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install fasd \
+  fd \
   fzf \
   git \
   git-delta \
