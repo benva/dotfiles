@@ -10,10 +10,9 @@ cp ~/.gitconfig ~/dotfiles/.gitconfig
 cp -R ~/.config/nvim/ ~/dotfiles/nvim/
 
 # lazygit
-cp ~/Library/Application\ Support/lazygit/config.yml ~/dotfiles/config.yml
+cp ~/Library/Application\ Support/lazygit/config.yml ~/dotfiles/lazygit/config.yml
 
 # kitty
-cp ~/.config/kitty/kitty.conf ~/dotfiles/kitty.conf
-cp ~/.config/kitty/gruvbox_dark.conf ~/dotfiles/gruvbox_dark.conf
+cp -R ~/.config/kitty/ ~/dotfiles/kitty/
 
 echo "Finished update!"
