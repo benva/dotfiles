@@ -7,7 +7,7 @@ cp ~/.zshrc ~/dotfiles/.zshrc
 cp ~/.gitconfig ~/dotfiles/.gitconfig
 
 # neovim
-cp ~/.config/nvim/init.vim ~/dotfiles/init.vim
+cp -R ~/.config/nvim/ ~/dotfiles/nvim/
 
 # lazygit
 cp ~/Library/Application\ Support/lazygit/config.yml ~/dotfiles/config.yml

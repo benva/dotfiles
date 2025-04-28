@@ -57,14 +57,16 @@ cp ~/dotfiles/.zshrc ~/.zshrc
 cp ~/dotfiles/.gitconfig ~/.gitconfig
 
 # neovim
-cp ~/dotfiles/init.vim ~/.config/nvim/init.vim
+mkdir -p ~/.config/nvim
+cp -R ~/dotfiles/nvim/ ~/.config/nvim/
 
 # lazygit
+mkdir -p ~/Library/Application\ Support/lazygit
 cp ~/dotfiles/config.yml ~/Library/Application\ Support/lazygit/config.yml
 
 # kitty
+mkdir -p ~/.config/kitty
 cp ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 cp ~/dotfiles/gruvbox_dark.conf ~/.config/kitty/gruvbox_dark.conf
 
 echo "Finished setup!"
-
