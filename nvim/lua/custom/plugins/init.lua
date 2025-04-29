@@ -2,4 +2,14 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  -- Keeps the cursor centred in the screen
+  { 'arnamak/stay-centered.nvim', lazy = false, opts = {} },
+
+  -- Automatically closes HTML tags
+  {
+    'windwp/nvim-ts-autotag',
+    event = 'BufReadPre',
+    opts = {},
+  },
+}
