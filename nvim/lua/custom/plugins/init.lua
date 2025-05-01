@@ -3,9 +3,6 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  -- Keep the cursor centred in the screen
-  { 'arnamak/stay-centered.nvim', lazy = false, opts = {} },
-
   -- Automatically close HTML tags
   {
     'windwp/nvim-ts-autotag',
@@ -13,45 +10,10 @@ return {
     opts = {},
   },
 
-  -- LazyGit integration
+  -- AI code completion
   {
-    'kdheepak/lazygit.nvim',
-    lazy = true,
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    keys = {
-      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
-    },
-  },
-
-  -- Search and replace across multiple files
-  {
-    'MagicDuck/grug-far.nvim',
-    cmd = 'GrugFar',
-    keys = {
-      {
-        '<leader>sR',
-        function()
-          local grug = require 'grug-far'
-          local ext = vim.bo.buftype == '' and vim.fn.expand '%:e'
-          grug.open {
-            transient = true,
-            prefills = {
-              filesFilter = ext and ext ~= '' and '*.' .. ext or nil,
-            },
-          }
-        end,
-        mode = { 'n', 'v' },
-        desc = '[S]earch and [R]eplace',
-      },
-    },
+    'Exafunction/windsurf.vim',
+    event = 'BufEnter',
+    config = function() end,
   },
 }
