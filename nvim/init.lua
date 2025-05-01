@@ -421,7 +421,7 @@ require('lazy').setup({
         defaults = {
           path_display = { 'truncate' },
         },
-        -- You can remove the preview box with this
+        -- You can remove the preview box by settings previwer = false
         -- pickers = {
         --   find_files = { previewer = true },
         --   oldfiles = { previewer = true },
@@ -1015,7 +1015,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
