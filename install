@@ -15,6 +15,7 @@ brew install fasd \
   lazygit \
   neovim \
   pure \
+  pyenv \
   ripgrep \
   zsh
 
