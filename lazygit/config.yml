@@ -3,4 +3,4 @@ git:
     colorArg: always
     pager: delta --dark --paging=never
 gui:
-  showFileTree: false
+  showFileTree: true
