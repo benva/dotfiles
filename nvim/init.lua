@@ -421,7 +421,7 @@ require('lazy').setup({
         defaults = {
           path_display = { 'truncate' },
         },
-        -- You can remove the preview box by settings previwer = false
+        -- You can remove the preview box by setting previwer = false
         -- pickers = {
         --   find_files = { previewer = true },
         --   oldfiles = { previewer = true },
@@ -551,7 +551,7 @@ require('lazy').setup({
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('gR', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('gR', vim.lsp.buf.rename, '[R]ename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
