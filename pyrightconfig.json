@@ -1,24 +1,6 @@
 {
   "venvPath": "./dist/export/python/virtualenvs",
   "venv": "python-default",
-  "include": [
-    "src/protobuf",
-    "src/python/libs/foundation",
-    "src/python/gateways/web_gte",
-    "src/python/controllers/proxie_ctr",
-    "src/python/applications/admin_app",
-    "src/python/applications/dojo_app",
-    "src/python/systems/user_sys",
-    "src/python/systems/tenant_sys",
-    "src/python/systems/client_sys",
-    "src/python/systems/application_sys",
-    "src/python/systems/course_sys",
-    "src/python/systems/registry_sys",
-    "src/python/systems/notify_sys",
-    "src/python/systems/license_sys",
-    "src/python/systems/quiz_sys",
-    "src/python/tools/scripts/health_check"
-  ],
   "extraPaths": [
     "src/protobuf",
     "src/python/libs/foundation",
@@ -35,6 +17,5 @@
     "src/python/systems/notify_sys",
     "src/python/systems/license_sys",
     "src/python/systems/quiz_sys",
-    "src/python/tools/scripts/health_check"
   ]
 }
