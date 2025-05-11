@@ -25,7 +25,6 @@ alias y="yt-dlp"
 alias lg="lazygit"
 
 # Work aliases
-alias pflc="pants fix lint check"
 alias pt="pants test"
 alias cr="cat ~/.copyright | pbcopy"
 
