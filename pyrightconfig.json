@@ -1,6 +1,9 @@
 {
   "venvPath": "./dist/export/python/virtualenvs",
   "venv": "python-default",
+  "typeCheckingMode": "off",
+  "diagnosticMode": "workspace",
+  "include": [ "src/python" ],
   "extraPaths": [
     "src/protobuf",
     "src/python/libs/foundation",
@@ -17,5 +20,6 @@
     "src/python/systems/notify_sys",
     "src/python/systems/license_sys",
     "src/python/systems/quiz_sys",
+    "src/python/systems/content_sys",
   ]
 }

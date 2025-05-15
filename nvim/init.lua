@@ -709,18 +709,7 @@ require('lazy').setup({
         --
 
         html = {},
-        pyright = {
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = 'off',
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = 'workspace',
-              },
-            },
-          },
-        },
+        pyright = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
