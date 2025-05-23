@@ -20,7 +20,8 @@ brew install fasd \
   zsh
 
 brew install --cask amethyst \
-  kitty
+  kitty \
+  raycast 
 
 # ========================
 # ZSH
