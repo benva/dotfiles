@@ -974,6 +974,12 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
+      -- Only show the filename of the current buffer
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_filename = function()
+        return '%t'
+      end
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
