@@ -89,7 +89,7 @@ vim.filetype.add {
 vim.keymap.set('n', '<leader>qq', '<cmd>bdelete<CR>', { desc = 'Quit the current buffer' })
 
 -- Quit all buffers except current
-vim.keymap.set('n', '<leader>qo', '<cmd>%bd|e#|bd#<CR>', { desc = 'Quit all buffers except current' })
+vim.keymap.set('n', '<leader>qo', '<cmd>:BufOnly<CR>', { desc = 'Quit all buffers except current' })
 
 -- Write the current buffer
 vim.keymap.set('n', '<C-s>', '<cmd>noa w<CR>', { desc = 'Write the current buffer' })

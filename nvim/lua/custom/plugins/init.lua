@@ -32,4 +32,7 @@ return {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
+
+  -- Delete all the buffers except the current
+  { 'numtostr/BufOnly.nvim', event = 'BufEnter', config = function() end },
 }
