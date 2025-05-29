@@ -10,6 +10,7 @@ prompt pure
 plugins=(
   git
   zsh-autosuggestions
+  pyenv-lazy
 )
 
 # This has to occur after initializing plugins
@@ -25,7 +26,7 @@ alias lg="lazygit"
 
 # Work aliases
 alias pt="pants test"
-alias cr="cat ~/.copyright | pbcopy"
+alias cr="cat ~/dotfiles/.copyright | pbcopy"
 
 # Most used directories
 eval "$(fasd --init zsh-hook)"
@@ -34,8 +35,3 @@ function z {
     cd $selected
   fi
 }
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
