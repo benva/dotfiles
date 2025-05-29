@@ -20,7 +20,6 @@ source <(fzf --zsh)
 
 # Personal aliases
 alias vim="nvim"
-alias p="python3"
 alias y="yt-dlp"
 alias lg="lazygit"
 
@@ -37,6 +36,6 @@ function z {
 }
 
 # pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
