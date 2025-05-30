@@ -33,6 +33,6 @@ return {
     },
   },
 
-  -- Delete all the buffers except the current
+  -- Delete all the buffers except current
   { 'numtostr/BufOnly.nvim', event = 'BufEnter', config = function() end },
 }
