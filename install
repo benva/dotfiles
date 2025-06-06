@@ -21,7 +21,7 @@ brew install bat \
   zsh
 
 brew install --cask amethyst \
-  font-sauce-code-pro-nerd-font \
+  font-meslo-lg-nerd-font \
   kitty \
   raycast 
 
