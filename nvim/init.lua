@@ -68,7 +68,7 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 100
+vim.o.scrolloff = 10
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -121,6 +121,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+-- Keep cursor centred vertically
+vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorMoved' }, {
+  group = vim.api.nvim_create_augroup('verically-centre-cursor', { clear = true }),
+  pattern = { '*', '*.*' },
+  callback = function()
+    vim.cmd 'normal! zz'
   end,
 })
 
