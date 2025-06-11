@@ -85,17 +85,17 @@ vim.filetype.add {
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Quit the current buffer
-vim.keymap.set('n', '<leader>qq', '<cmd>bdelete<CR>', { desc = 'Quit the current buffer' })
+-- Delete the current buffer
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [D]elete' })
 
--- Quit all buffers except current
-vim.keymap.set('n', '<leader>qo', '<cmd>:BufOnly<CR>', { desc = 'Quit all buffers except current' })
+-- Delete all buffers except current
+vim.keymap.set('n', '<leader>bo', '<cmd>:BufOnly<CR>', { desc = '[B]uffer [O]nly' })
+
+-- Yank the relative path of the buffer
+vim.keymap.set('n', '<leader>bp', '<cmd>let @*=expand("%")<CR>', { desc = '[B]uffer [P]ath' })
 
 -- Write the current buffer
 vim.keymap.set('n', '<C-s>', '<cmd>noa w<CR>', { desc = 'Write the current buffer' })
-
--- Yank the relative path of the current buffer
-vim.keymap.set('n', '<leader>yp', '<cmd>let @*=expand("%")<CR>', { desc = 'Yank relative path of buffer' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -258,6 +258,7 @@ require('lazy').setup({
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>b', group = '[B]uffer' },
       },
     },
   },
@@ -669,12 +670,12 @@ require('lazy').setup({
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<leader>bf',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = '[B]uffer [F]ormat',
       },
     },
     opts = {
