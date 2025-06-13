@@ -1,20 +1,26 @@
 #!/bin/bash
 
+# NOTE: Install Homebrew, oh-my-zsh, and fasd manually first
+# Homebrew:
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# oh-my-zsh:
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# fasd:
+# https://github.com/whjvenyl/fasd
+
 # ========================
 # HOMEBREW
 # ========================
-echo "Installing homebrew and specified packages"
-
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "Installing homebrew packages"
 
 brew install bat \
-  fasd \
   fd \
   fzf \
   git \
   git-delta \
   lazygit \
   neovim \
+  node \
   pure \
   pyenv \
   ripgrep \
@@ -28,11 +34,9 @@ brew install --cask amethyst \
 # ========================
 # ZSH
 # ========================
-echo "Installing zsh and plugins"
+echo "Installing zsh plugins"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ~/.oh-my-zsh/custom/plugins/pyenv-lazy
 
 # ========================
