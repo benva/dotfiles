@@ -82,6 +82,9 @@ vim.filetype.add {
   },
 }
 
+-- Set the shell to zsh interactive mode
+vim.o.shell = 'zsh -i'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -89,17 +92,34 @@ vim.filetype.add {
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [D]elete' })
 
 -- Delete all buffers except current
-vim.keymap.set('n', '<leader>bo', '<cmd>:BufOnly<CR>', { desc = '[B]uffer [O]nly' })
+vim.keymap.set('n', '<leader>bo', '<cmd>BufOnly<CR>', { desc = '[B]uffer [O]nly' })
 
 -- Yank the relative path of the buffer
 vim.keymap.set('n', '<leader>bp', '<cmd>let @*=expand("%")<CR>', { desc = '[B]uffer [P]ath' })
 
+-- Paste copyright string to buffer
+vim.keymap.set('n', '<leader>bc', '<cmd>read! cat ~/Kumo-no-Mori/copyright<CR>', { desc = '[B]uffer [C]opyright' })
+
+-- Run test command for current buffer
+vim.keymap.set('n', '<leader>bt', '<cmd>vertical terminal pants test %<CR>', { desc = '[B]uffer [T]est' })
+
 -- Write the current buffer
 vim.keymap.set('n', '<C-s>', '<cmd>noa w<CR>', { desc = 'Write the current buffer' })
+
+-- Open lazygit in a vertical split
+vim.keymap.set('n', '<leader>lg', '<cmd>vertical terminal lazygit<CR>', { desc = 'Open [L]azy[G]it' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+-- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
+-- is not what someone will guess without a bit more experience.
+--
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- or just use <C-\><C-n> to exit terminal mode
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -130,6 +150,39 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorMoved' }, {
   pattern = { '*', '*.*' },
   callback = function()
     vim.cmd 'normal! zz'
+  end,
+})
+
+-- Open the terminal in insert mode
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  group = vim.api.nvim_create_augroup('terminal-insert-mode', { clear = true }),
+  callback = function()
+    vim.cmd 'startinsert'
+  end,
+})
+
+-- Suppress the [Process exited] terminal exit message
+vim.api.nvim_create_autocmd('TermClose', {
+  pattern = '*',
+  group = vim.api.nvim_create_augroup('supress-terminal-exit-message', { clear = true }),
+  callback = function(args)
+    local buf = args.buf
+    if not vim.api.nvim_buf_is_valid(buf) then
+      return
+    end
+
+    -- Ignore buffers that contain "pants test"
+    local bufname = vim.api.nvim_buf_get_name(buf)
+    if bufname:match 'pants test' then
+      return
+    end
+
+    vim.schedule(function()
+      if vim.api.nvim_buf_is_valid(buf) then
+        vim.api.nvim_buf_delete(buf, { force = true })
+      end
+    end)
   end,
 })
 

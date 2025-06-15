@@ -21,12 +21,7 @@ source <(fzf --zsh)
 
 # Personal aliases
 alias vim="nvim"
-alias y="yt-dlp"
 alias lg="lazygit"
-
-# Work aliases
-alias pt="pants test"
-alias cr="cat ~/dotfiles/.copyright | pbcopy"
 
 # Most used directories
 eval "$(fasd --init zsh-hook)"
