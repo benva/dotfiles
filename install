@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# NOTE: Install Homebrew, oh-my-zsh, and fasd manually first
+# NOTE: Install Homebrew, oh-my-zsh, and fasd manually
 # Homebrew:
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # oh-my-zsh:
@@ -16,6 +16,7 @@ echo "Installing homebrew packages"
 brew install bat \
   fd \
   fzf \
+  gh \
   git \
   git-delta \
   lazygit \
