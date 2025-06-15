@@ -106,9 +106,6 @@ vim.keymap.set('n', '<leader>bt', '<cmd>vertical terminal pants test %<CR>', { d
 -- Write the current buffer
 vim.keymap.set('n', '<C-s>', '<cmd>noa w<CR>', { desc = 'Write the current buffer' })
 
--- Open lazygit in a vertical split
-vim.keymap.set('n', '<leader>lg', '<cmd>vertical terminal lazygit<CR>', { desc = 'Open [L]azy[G]it' })
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -159,30 +156,6 @@ vim.api.nvim_create_autocmd('TermOpen', {
   group = vim.api.nvim_create_augroup('terminal-insert-mode', { clear = true }),
   callback = function()
     vim.cmd 'startinsert'
-  end,
-})
-
--- Suppress the [Process exited] terminal exit message
-vim.api.nvim_create_autocmd('TermClose', {
-  pattern = '*',
-  group = vim.api.nvim_create_augroup('supress-terminal-exit-message', { clear = true }),
-  callback = function(args)
-    local buf = args.buf
-    if not vim.api.nvim_buf_is_valid(buf) then
-      return
-    end
-
-    -- Ignore buffers that contain "pants test"
-    local bufname = vim.api.nvim_buf_get_name(buf)
-    if bufname:match 'pants test' then
-      return
-    end
-
-    vim.schedule(function()
-      if vim.api.nvim_buf_is_valid(buf) then
-        vim.api.nvim_buf_delete(buf, { force = true })
-      end
-    end)
   end,
 })
 
