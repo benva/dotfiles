@@ -22,6 +22,7 @@ source <(fzf --zsh)
 # Personal aliases
 alias vim="nvim"
 alias lg="lazygit"
+alias pk="lsof -i -P -n | grep LISTEN | fzf --multi | awk '{print $2}' | xargs kill -9"
 
 # Most used directories
 eval "$(fasd --init zsh-hook)"
