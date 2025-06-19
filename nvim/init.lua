@@ -635,6 +635,7 @@ require('lazy').setup({
         --
 
         html = {},
+        ts_ls = {},
         pyright = {},
         lua_ls = {
           -- cmd = { ... },
