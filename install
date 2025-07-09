@@ -21,6 +21,7 @@ brew install bat \
   git-delta \
   lazygit \
   neovim \
+  neovim-remote \
   node \
   pure \
   pyenv \

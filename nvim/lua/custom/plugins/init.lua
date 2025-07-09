@@ -28,4 +28,23 @@ return {
 
   -- Delete all the buffers except current
   { 'numtostr/BufOnly.nvim', event = 'BufEnter', config = function() end },
+
+  -- LazyGit integration
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'Open [L]azy[G]it' },
+    },
+  },
 }

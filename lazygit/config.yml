@@ -4,3 +4,5 @@ git:
     pager: delta --dark --paging=never
 gui:
   showFileTree: true
+os:
+  edit: "nvr -cc vsplit --remote-wait +'set bufhidden=wipe' {{filename}}" 
