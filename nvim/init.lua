@@ -321,7 +321,14 @@ require('lazy').setup({
     -- See `:help snacks-picker` and `:help snacks-picker-setup`
     ---@type snacks.Config
     opts = {
-      picker = {},
+      picker = {
+        sources = {
+          explorer = {
+            layout = { layout = { position = 'right' } },
+          },
+        },
+      },
+      explorer = {},
     },
 
     -- See `:help snacks-pickers-sources`
@@ -341,26 +348,18 @@ require('lazy').setup({
         desc = '[S]earch [K]eymaps',
       },
       {
+        '<leader>se',
+        function()
+          Snacks.explorer()
+        end,
+        desc = '[S]earch [E]iles',
+      },
+      {
         '<leader>sf',
         function()
           Snacks.picker.smart()
         end,
         desc = '[S]earch [F]iles',
-      },
-      {
-        '<leader>ss',
-        function()
-          Snacks.picker.pickers()
-        end,
-        desc = '[S]earch [S]elect Snacks',
-      },
-      {
-        '<leader>sw',
-        function()
-          Snacks.picker.grep_word()
-        end,
-        desc = '[S]earch current [W]ord',
-        mode = { 'n', 'x' },
       },
       {
         '<leader>sg',
@@ -955,7 +954,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
