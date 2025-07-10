@@ -77,14 +77,10 @@ return {
           map('gW', require('snacks').picker.lsp_workspace_symbols, 'Open Workspace Symbols')
 
           -- Jump to the type of the word under your cursor.
-          --  Useful when you're not sure what type a variable is and you want to see
-          --  the definition of its *type*, not where it was *defined*.
           map('gT', require('snacks').picker.lsp_type_definitions, '[G]oto [T]ype Definition')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
-          --    See `:help CursorHold` for information about when this is executed
-          --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
@@ -110,10 +106,7 @@ return {
             })
           end
 
-          -- The following code creates a keymap to toggle inlay hints in your
-          -- code, if the language server you are using supports them
-          --
-          -- This may be unwanted, since they displace some of your code
+          -- The following code creates a keymap to toggle inlay hints
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
@@ -123,11 +116,9 @@ return {
       })
 
       -- Diagnostic Config
-      -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -139,19 +130,9 @@ return {
         virtual_text = {
           source = 'if_many',
           spacing = 2,
-          format = function(diagnostic)
-            local diagnostic_message = {
-              [vim.diagnostic.severity.ERROR] = diagnostic.message,
-              [vim.diagnostic.severity.WARN] = diagnostic.message,
-              [vim.diagnostic.severity.INFO] = diagnostic.message,
-              [vim.diagnostic.severity.HINT] = diagnostic.message,
-            }
-            return diagnostic_message[diagnostic.severity]
-          end,
         },
       }
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
       local servers = {
         html = {},
         ts_ls = {},
@@ -167,29 +148,25 @@ return {
         },
       }
 
+      ---@type MasonLspconfigSettings
+      ---@diagnostic disable-next-line: missing-fields
+      require('mason-lspconfig').setup {
+        automatic_enable = vim.tbl_keys(servers or {}),
+      }
+
       -- Ensure the servers and tools above are installed
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        'stylua',
         'ruff',
         'prettier',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
+      -- Installed LSPs are configured and enabled automatically with mason-lspconfig
+      for server_name, config in pairs(servers) do
+        vim.lsp.config(server_name, config)
+      end
     end,
   },
 }
