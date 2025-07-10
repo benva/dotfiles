@@ -19,6 +19,13 @@ return {
     },
     keys = {
       {
+        '\\',
+        function()
+          Snacks.explorer()
+        end,
+        desc = 'File Explorer',
+      },
+      {
         '<leader>sh',
         function()
           Snacks.picker.help()
@@ -31,13 +38,6 @@ return {
           Snacks.picker.keymaps()
         end,
         desc = '[S]earch [K]eymaps',
-      },
-      {
-        '<leader>se',
-        function()
-          Snacks.explorer()
-        end,
-        desc = '[S]earch [E]xplorer',
       },
       {
         '<leader>sf',
