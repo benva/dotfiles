@@ -41,6 +41,7 @@ return {
         return orig_util_open_floating_preview(contents, syntax, opts, ...)
       end
 
+      -- LSP keymaps and autocommands
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
@@ -116,17 +117,19 @@ return {
       })
 
       -- Diagnostic Config
+      local diagnostic_icons = {
+        [vim.diagnostic.severity.ERROR] = '󰅚 ',
+        [vim.diagnostic.severity.WARN] = '󰀪 ',
+        [vim.diagnostic.severity.INFO] = '󰋽 ',
+        [vim.diagnostic.severity.HINT] = '󰌶 ',
+      }
+
       vim.diagnostic.config {
+        update_in_insert = true,
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
-        signs = vim.g.have_nerd_font and {
-          text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚 ',
-            [vim.diagnostic.severity.WARN] = '󰀪 ',
-            [vim.diagnostic.severity.INFO] = '󰋽 ',
-            [vim.diagnostic.severity.HINT] = '󰌶 ',
-          },
-        } or {},
+        underline = true,
+        signs = vim.g.have_nerd_font and { text = diagnostic_icons } or {},
         virtual_text = {
           source = 'if_many',
           spacing = 2,

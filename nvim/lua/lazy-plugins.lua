@@ -32,10 +32,12 @@ require('lazy').setup({
   -- LSP Plugins
   require 'plugins.lspconfig',
 
-  -- Collection of various small independent plugins/modules
+  -- Collection of various small independent plugins such as around/inside
+  -- textobjects, surround textobjects with brackets, quotes, etc., plus the
+  -- tabline and statusline
   require 'plugins.mini',
 
-  -- Fuzzy Finder (files, lsp, etc)
+  -- Quality of life plugins (Fuzzy finder for files, LSP, etc.)
   require 'plugins.snacks',
 
   -- Highlight todo, notes, etc in comments
