@@ -2,17 +2,50 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   { 'NMAC427/guess-indent.nvim', opts = {} },
 
-  -- Automatically pairs brackets
-  require 'plugins.autopairs',
+  -- Automatically pairs brackets, quotes, etc.
+  { 'windwp/nvim-autopairs', event = 'InsertEnter', opts = {} },
+
+  -- Delete all the buffers except current
+  { 'numtostr/BufOnly.nvim', event = 'BufEnter', config = function() end },
+
+  -- Add indentation guides even on blank lines
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
+
+  -- Highlight todo, notes, etc in comments
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
+
+  -- Colorscheme
+  {
+    'ellisonleao/gruvbox.nvim',
+    priority = 1000,
+    config = function()
+      require('gruvbox').setup {}
+
+      vim.cmd.colorscheme 'gruvbox'
+    end,
+  },
+
+  -- UI enhancement (command line and popup menu)
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+  },
 
   -- Autocompletion
   require 'plugins.blink-cmp',
-
-  -- Delete all the buffers except current
-  require 'plugins.bufonly',
-
-  -- Colorscheme
-  require 'plugins.colorscheme',
 
   -- Autoformat
   require 'plugins.conform',
@@ -20,28 +53,18 @@ require('lazy').setup({
   -- Navigate with search labels
   require 'plugins.flash',
 
-  -- Adds git related signs to the gutter, as well as utilities for managing changes
+  -- Add git signs to the gutter, as well as utilities for managing changes
   require 'plugins.gitsigns',
 
-  -- Add indentation guides even on blank lines
-  require 'plugins.indent_line',
-
-  -- LSP Plugins
+  -- LSP
   require 'plugins.lspconfig',
 
-  -- Collection of various small independent plugins such as around/inside
-  -- textobjects, surround textobjects with brackets, quotes, etc., plus the
-  -- tabline and statusline
+  -- Quality of life plugins (around/inside textobjects, surround textobjects
+  -- with brackets, quotes, etc., plus the tabline and statusline)
   require 'plugins.mini',
 
-  -- UI enhancement (command line and popup menu)
-  require 'plugins.noice',
-
-  -- Quality of life plugins (Fuzzy finder for files, LSP, LazyGit integration etc.)
+  -- Quality of life plugins (Fuzzy finder for files & LSP, LazyGit integration etc.)
   require 'plugins.snacks',
-
-  -- Highlight todo, notes, etc in comments
-  require 'plugins.todo-comments',
 
   -- Improved highlighting, editing, and navigating code
   require 'plugins.treesitter',
