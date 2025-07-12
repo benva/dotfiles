@@ -26,9 +26,6 @@ require('lazy').setup({
   -- Add indentation guides even on blank lines
   require 'plugins.indent_line',
 
-  -- LazyGit integration
-  require 'plugins.lazygit',
-
   -- LSP Plugins
   require 'plugins.lspconfig',
 
@@ -40,7 +37,7 @@ require('lazy').setup({
   -- UI enhancement (command line and popup menu)
   require 'plugins.noice',
 
-  -- Quality of life plugins (Fuzzy finder for files, LSP, etc.)
+  -- Quality of life plugins (Fuzzy finder for files, LSP, LazyGit integration etc.)
   require 'plugins.snacks',
 
   -- Highlight todo, notes, etc in comments

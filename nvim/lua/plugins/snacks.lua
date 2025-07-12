@@ -16,8 +16,16 @@ return {
         },
       },
       explorer = {},
+      lazygit = {},
     },
     keys = {
+      {
+        '<leader>lg',
+        function()
+          Snacks.lazygit.open()
+        end,
+        desc = 'Open [L]azy[G]it',
+      },
       {
         '\\',
         function()
