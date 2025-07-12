@@ -15,4 +15,6 @@ cp ~/Library/Application\ Support/lazygit/config.yml ~/dotfiles/lazygit/config.y
 # kitty
 cp -R ~/.config/kitty/ ~/dotfiles/kitty/
 
+cp -R ~/.config/aerospace/ ~/dotfiles/aerospace/
+
 echo "Finished update!"

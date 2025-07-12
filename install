@@ -9,7 +9,7 @@
 # https://github.com/whjvenyl/fasd
 
 # ========================
-# HOMEBREW
+# HOMEBREW PACKAGES
 # ========================
 echo "Installing homebrew packages"
 
@@ -28,13 +28,13 @@ brew install bat \
   ripgrep \
   zsh
 
-brew install --cask amethyst \
+brew install --cask nikitabobko/tap/aerospace \
   font-jetbrains-mono-nerd-font \
   kitty \
   raycast 
 
 # ========================
-# ZSH
+# ZSH PLUGINS
 # ========================
 echo "Installing zsh plugins"
 
@@ -42,7 +42,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ~/.oh-my-zsh/custom/plugins/pyenv-lazy
 
 # ========================
-# CONFIG
+# CONFIG FILES
 # ========================
 echo "Copying config files"
 
@@ -63,5 +63,9 @@ cp ~/dotfiles/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.y
 # kitty
 mkdir -p ~/.config/kitty
 cp -R ~/dotfiles/kitty/ ~/.config/kitty/
+
+# aerospace
+mkdir -p ~/.config/aerospace
+cp -R ~/dotfiles/aerospace/ ~/.config/aerospace/
 
 echo "Finished setup!"
