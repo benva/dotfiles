@@ -1,4 +1,5 @@
 require('lazy').setup({
+
   -- Detect tabstop and shiftwidth automatically
   { 'NMAC427/guess-indent.nvim', opts = {} },
 
@@ -25,7 +26,6 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require('gruvbox').setup {}
-
       vim.cmd.colorscheme 'gruvbox'
     end,
   },
@@ -71,6 +71,9 @@ require('lazy').setup({
 
   -- Display pending keymappings
   require 'plugins.which-key',
+
+  -- LLM autocompletion
+  require 'plugins.windsurf',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
