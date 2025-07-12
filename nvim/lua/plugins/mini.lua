@@ -8,7 +8,7 @@ return {
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       require('mini.surround').setup()
 
-      -- Tabline
+      -- Tabline that shows open buffers
       require('mini.tabline').setup()
 
       -- Statusline

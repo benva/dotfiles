@@ -14,6 +14,9 @@ return {
             layout = { layout = { position = 'right' } },
           },
         },
+        formatters = {
+          file = { truncate = 80 },
+        },
       },
       explorer = {},
       lazygit = {},
@@ -74,6 +77,13 @@ return {
           Snacks.picker.recent()
         end,
         desc = '[S]earch [R]ecent Files',
+      },
+      {
+        '<leader>sc',
+        function()
+          Snacks.picker.command_history()
+        end,
+        desc = '[S]earch [C]ommand History',
       },
       {
         '<leader><leader>',
