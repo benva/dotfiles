@@ -56,7 +56,7 @@ return {
       {
         '<leader>sd',
         function()
-          Snacks.picker.diagnostics()
+          Snacks.picker.diagnostics_buffer()
         end,
         desc = '[S]earch [D]iagnostics',
       },
