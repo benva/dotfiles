@@ -11,6 +11,9 @@ require('lazy').setup({
   -- Delete all the buffers except current
   require 'plugins.bufonly',
 
+  -- Colorscheme
+  require 'plugins.colorscheme',
+
   -- Autoformat
   require 'plugins.conform',
 
@@ -19,9 +22,6 @@ require('lazy').setup({
 
   -- Adds git related signs to the gutter, as well as utilities for managing changes
   require 'plugins.gitsigns',
-
-  -- Colorscheme
-  require 'plugins.gruvbox',
 
   -- Add indentation guides even on blank lines
   require 'plugins.indent_line',
