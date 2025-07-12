@@ -37,6 +37,9 @@ require('lazy').setup({
   -- tabline and statusline
   require 'plugins.mini',
 
+  -- UI enhancement (command line and popup menu)
+  require 'plugins.noice',
+
   -- Quality of life plugins (Fuzzy finder for files, LSP, etc.)
   require 'plugins.snacks',
 

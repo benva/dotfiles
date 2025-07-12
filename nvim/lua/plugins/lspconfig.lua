@@ -29,18 +29,6 @@ return {
       'saghen/blink.cmp',
     },
     config = function()
-      -- Override floating preview styling globally (hover, signature, etc.)
-      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-
-      ---@diagnostic disable-next-line: duplicate-set-field
-      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-        opts = opts or {}
-        opts.border = opts.border or 'rounded'
-        opts.max_width = opts.max_width or 80
-        opts.max_height = opts.max_height or 20
-        return orig_util_open_floating_preview(contents, syntax, opts, ...)
-      end
-
       -- LSP keymaps and autocommands
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -65,7 +53,7 @@ return {
           -- Jump to the definition of the word under your cursor.
           map('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
 
-          -- WARN: This is not Goto Definition, this is Goto Declaration.
+          -- This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
