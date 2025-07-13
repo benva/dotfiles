@@ -23,7 +23,6 @@ export FZF_DEFAULT_OPTS='--reverse'
 # Aliases
 alias vim="nvim"
 alias lg="lazygit"
-alias pk="lsof -i -P -n | grep LISTEN | fzf --multi | awk '{print $2}' | xargs kill -9"
 
 # Keep track of most visited directories
 eval "$(fasd --init zsh-hook)"
@@ -34,5 +33,17 @@ z() {
 
   if selected=$(fasd -dlR | fzf --no-sort --height 10% --reverse) ; then
     cd "$selected"
+  fi
+}
+
+# Fuzzy find processes to kill
+pk() {
+  local selected pid_list
+
+  selected=$(lsof -nP -iTCP -sTCP:LISTEN | fzf --multi) || return 0
+  pid_list=$(printf '%s\n' "$selected" | awk '{ print $2 }')
+
+  if [ -n "$pid_list" ]; then
+    printf '%s\n' "$pid_list" | xargs --no-run-if-empty kill -9
   fi
 }
