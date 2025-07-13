@@ -8,7 +8,7 @@ vim.keymap.set('n', '<leader>bo', '<cmd>BufOnly<CR>', { desc = '[B]uffer [O]nly'
 vim.keymap.set('n', '<leader>bp', '<cmd>let @*=expand("%")<CR>', { desc = '[B]uffer [P]ath' })
 
 -- Paste copyright string to buffer
-vim.keymap.set('n', '<leader>bc', '<cmd>read! cat ~/Kumo-no-Mori/copyright<CR>', { desc = '[B]uffer [C]opyright' })
+vim.keymap.set('n', '<leader>bc', '<cmd>read! cat ~/Kumo-no-Mori/copyright.txt<CR>', { desc = '[B]uffer [C]opyright' })
 
 -- Run test command for current buffer
 vim.keymap.set('n', '<leader>bt', '<cmd>vertical terminal pants test %<CR>', { desc = '[B]uffer [T]est' })
