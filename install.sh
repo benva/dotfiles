@@ -1,17 +1,14 @@
 #!/bin/bash
 
-# NOTE: Install Homebrew, oh-my-zsh, and fasd manually
-# Homebrew:
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# oh-my-zsh:
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# fasd:
-# https://github.com/whjvenyl/fasd
-
 # ========================
 # HOMEBREW PACKAGES
 # ========================
 echo "Installing homebrew packages"
+
+# Install homebrew if it isn't already
+if ! command -v brew >/dev/null 2>&1; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
 brew install bat \
   fd \
@@ -34,9 +31,28 @@ brew install --cask nikitabobko/tap/aerospace \
   raycast 
 
 # ========================
+# OTHER PACKAGES
+# ========================
+echo "Installing other packages"
+
+# Install fasd if it isn't already
+if ! command -v fasd >/dev/null 2>&1; then
+  git clone https://github.com/whjvenyl/fasd.git
+  cd fasd
+  sudo make install
+  cd ..
+  rm -rf fasd
+fi
+
+# ========================
 # ZSH PLUGINS
 # ========================
 echo "Installing zsh plugins"
+
+# Install oh my zsh if it isn't already
+if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/davidparsson/zsh-pyenv-lazy.git ~/.oh-my-zsh/custom/plugins/pyenv-lazy
