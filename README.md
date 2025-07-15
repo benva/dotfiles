@@ -4,11 +4,11 @@
 
 ```
 cd dotfiles
-./install
+./install.sh
 ```
 
 ## Update
 
 ```
-./update
+./update.sh
 ```
