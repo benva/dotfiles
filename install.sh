@@ -23,6 +23,7 @@ brew install bat \
   pure \
   pyenv \
   ripgrep \
+  yazi \
   zsh
 
 brew install --cask nikitabobko/tap/aerospace \
@@ -83,5 +84,9 @@ cp -R ~/dotfiles/kitty/ ~/.config/kitty/
 # aerospace
 mkdir -p ~/.config/aerospace
 cp -R ~/dotfiles/aerospace/ ~/.config/aerospace/
+
+# yazi
+mkdir -p ~/.config/yazi
+cp -R ~/dotfiles/yazi/ ~/.confi/yazi/
 
 echo "Finished setup!"
