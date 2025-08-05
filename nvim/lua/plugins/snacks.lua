@@ -15,7 +15,7 @@ return {
           },
         },
         formatters = {
-          file = { truncate = 80 },
+          file = { truncate = 65 },
         },
       },
       explorer = {},
@@ -70,13 +70,6 @@ return {
           Snacks.picker.diagnostics_buffer()
         end,
         desc = '[S]earch [D]iagnostics',
-      },
-      {
-        '<leader>sr',
-        function()
-          Snacks.picker.recent()
-        end,
-        desc = '[S]earch [R]ecent Files',
       },
       {
         '<leader>sc',
