@@ -20,6 +20,10 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--reverse'
 
+# Set neovim as the default editor
+export VISUAL="nvim"
+export EDITOR="nvim"
+
 # Aliases
 alias vim="nvim"
 alias lg="lazygit"
@@ -34,6 +38,15 @@ z() {
   if selected=$(fasd -dlR | fzf --no-sort --height 10% --reverse) ; then
     cd "$selected"
   fi
+}
+
+# Change directory using yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 # Fuzzy find processes to kill
