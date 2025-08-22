@@ -13,6 +13,12 @@ vim.filetype.add {
   },
 }
 
+-- Associate BUILD files to python
+vim.filetype.add {
+  filename = {
+    ['BUILD'] = 'python',
+  },
+}
 -- [[ Setting options ]]
 require 'options'
 
