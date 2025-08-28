@@ -53,3 +53,25 @@ vim.o.confirm = true
 
 -- Set the shell to zsh interactive mode
 vim.o.shell = 'zsh -i'
+
+-- Only display filename in tabline
+vim.o.tabline = '%!v:lua.DisplayFilenameInTabline()'
+
+function _G.DisplayFilenameInTabline()
+  local s = ''
+  for i = 1, vim.fn.tabpagenr '$' do
+    local winnr = vim.fn.tabpagewinnr(i)
+    local buflist = vim.fn.tabpagebuflist(i)
+    local bufnr = buflist[winnr]
+    local name = vim.fn.bufname(bufnr)
+    local fname = vim.fn.fnamemodify(name, ':t')
+
+    if i == vim.fn.tabpagenr() then
+      s = s .. '%#TabLineSel#' .. ' ' .. fname .. ' '
+    else
+      s = s .. '%#TabLine#' .. ' ' .. fname .. ' '
+    end
+  end
+  s = s .. '%#TabLineFill#'
+  return s
+end
