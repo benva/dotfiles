@@ -47,26 +47,8 @@ return {
           -- Find references for the word under your cursor.
           map('gr', require('snacks').picker.lsp_references, '[G]oto [R]eferences')
 
-          -- Jump to the implementation of the word under your cursor.
-          map('gI', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
-
           -- Jump to the definition of the word under your cursor.
           map('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
-
-          -- This is not Goto Definition, this is Goto Declaration.
-          --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
-          -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
-          map('gO', require('snacks').picker.lsp_symbols, 'Open Document Symbols')
-
-          -- Fuzzy find all the symbols in your current workspace.
-          --  Similar to document symbols, except searches over your entire project.
-          map('gW', require('snacks').picker.lsp_workspace_symbols, 'Open Workspace Symbols')
-
-          -- Jump to the type of the word under your cursor.
-          map('gT', require('snacks').picker.lsp_type_definitions, '[G]oto [T]ype Definition')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
