@@ -8,6 +8,16 @@ return {
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       require('mini.surround').setup()
 
+      local function filename_with_modified()
+        local filename = vim.fn.expand '%:t'
+        if filename == '' then filename = '[No Name]' end
+
+        local modified_marker = ''
+        if vim.bo.modified then modified_marker = ' [+]' end
+
+        return filename .. modified_marker
+      end
+
       -- Statusline
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -34,15 +44,14 @@ return {
 
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.inactive = function()
-        local filename = vim.fn.expand '%:t'
         return statusline.section_filename {
-          { hl = 'MiniStatuslineFilenameInactive', strings = { filename } },
+          { hl = 'MiniStatuslineFilenameInactive', strings = { filename_with_modified() } },
         }
       end
 
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_filename = function()
-        return vim.fn.expand '%:t'
+        return filename_with_modified()
       end
 
       ---@diagnostic disable-next-line: duplicate-set-field
