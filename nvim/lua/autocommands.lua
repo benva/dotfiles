@@ -6,12 +6,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
-
--- Open the terminal in insert mode
-vim.api.nvim_create_autocmd('TermOpen', {
-  pattern = '*',
-  group = vim.api.nvim_create_augroup('terminal-insert-mode', { clear = true }),
-  callback = function()
-    vim.cmd 'startinsert'
-  end,
-})
