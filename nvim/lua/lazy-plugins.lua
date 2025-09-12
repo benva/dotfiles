@@ -6,9 +6,6 @@ require('lazy').setup({
   -- Automatically pairs brackets, quotes, etc.
   { 'windwp/nvim-autopairs', event = 'InsertEnter', opts = {} },
 
-  -- Delete all the buffers except current
-  { 'numtostr/BufOnly.nvim', event = 'BufEnter', config = function() end },
-
   -- Add indentation guides even on blank lines
   { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {} },
 

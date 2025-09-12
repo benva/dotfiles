@@ -1,9 +1,6 @@
 -- Delete the current buffer
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [D]elete' })
 
--- Delete all buffers except current
-vim.keymap.set('n', '<leader>bo', '<cmd>BufOnly<CR>', { desc = '[B]uffer [O]nly' })
-
 -- Yank the relative path of the buffer
 vim.keymap.set('n', '<leader>bp', '<cmd>let @*=expand("%")<CR>', { desc = '[B]uffer [P]ath' })
 
