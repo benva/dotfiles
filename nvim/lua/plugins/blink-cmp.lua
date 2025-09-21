@@ -17,8 +17,7 @@ return {
           end
           return 'make install_jsregexp'
         end)(),
-        dependencies = {
-        },
+        dependencies = {},
         opts = {},
       },
       'folke/lazydev.nvim',
@@ -42,7 +41,11 @@ return {
         },
       },
       snippets = { preset = 'luasnip' },
-      fuzzy = { implementation = 'lua' },
+      fuzzy = {
+        implementation = 'lua',
+        -- put "kind" before "sort_text" so Class (7) sorts before Module (9)
+        sorts = { 'kind', 'score', 'sort_text' },
+      },
       signature = { enabled = true },
     },
   },
