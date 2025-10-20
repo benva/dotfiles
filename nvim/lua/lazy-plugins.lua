@@ -70,7 +70,7 @@ require('lazy').setup({
   require 'plugins.which-key',
 
   -- LLM autocompletion
-  require 'plugins.windsurf',
+  require 'plugins.copilot',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
