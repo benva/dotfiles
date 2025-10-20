@@ -49,14 +49,4 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# Fuzzy find processes to kill
-pk() {
-  local selected pid_list
 
-  selected=$(lsof -nP -iTCP -sTCP:LISTEN | fzf --multi) || return 0
-  pid_list=$(printf '%s\n' "$selected" | awk '{ print $2 }')
-
-  if [ -n "$pid_list" ]; then
-    printf '%s\n' "$pid_list" | xargs --no-run-if-empty kill -9
-  fi
-}
