@@ -33,6 +33,7 @@ return {
       },
       completion = {
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        menu = { border = 'rounded' },
       },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
@@ -43,8 +44,6 @@ return {
       snippets = { preset = 'luasnip' },
       fuzzy = {
         implementation = 'lua',
-        -- put "kind" before "sort_text" so Class (7) sorts before Module (9)
-        sorts = { 'kind', 'score', 'sort_text' },
       },
       signature = { enabled = true },
     },
