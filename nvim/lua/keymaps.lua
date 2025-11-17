@@ -2,7 +2,7 @@
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = '[B]uffer [D]elete' })
 
 -- Yank the relative path of the buffer
-vim.keymap.set('n', '<leader>bp', '<cmd>let @*=expand("%")<CR>', { desc = '[B]uffer [P]ath' })
+vim.keymap.set('n', '<leader>bp', '<cmd>let @*=fnamemodify(expand("%"), ":.")<CR>', { desc = '[B]uffer [P]ath' })
 
 -- Paste copyright string to buffer
 vim.keymap.set('n', '<leader>bc', '<cmd>read! cat ~/Kumo-no-Mori/copyright.txt<CR>', { desc = '[B]uffer [C]opyright' })
