@@ -57,7 +57,7 @@ require('lazy').setup({
   require 'plugins.lspconfig',
 
   -- Quality of life plugins (around/inside textobjects, surround textobjects
-  -- with brackets, quotes, etc., plus the tabline and statusline)
+  -- with brackets, quotes, and the statusline)
   require 'plugins.mini',
 
   -- Quality of life plugins (Fuzzy finder for files & LSP, LazyGit integration etc.)
