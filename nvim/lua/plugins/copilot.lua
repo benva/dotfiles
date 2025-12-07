@@ -7,12 +7,10 @@ return {
     opts = {
       suggestion = {
         enabled = true,
-        auto_trigger = true,
+        auto_trigger = false,
         hide_during_completion = false,
         keymap = {
           accept = '<C-g>',
-          next = '<C-.>',
-          prev = '<C-,>',
         },
       },
       panel = { enabled = false },
