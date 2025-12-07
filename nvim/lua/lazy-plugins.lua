@@ -17,6 +17,9 @@ require('lazy').setup({
     opts = { signs = false },
   },
 
+    -- Highlight search labels
+  { 'folke/flash.nvim', event = 'VeryLazy', opts = {} },
+
   -- Colorscheme
   {
     'ellisonleao/gruvbox.nvim',
@@ -46,9 +49,6 @@ require('lazy').setup({
 
   -- Autoformat
   require 'plugins.conform',
-
-  -- Navigate with search labels
-  require 'plugins.flash',
 
   -- Add git signs to the gutter, as well as utilities for managing changes
   require 'plugins.gitsigns',
