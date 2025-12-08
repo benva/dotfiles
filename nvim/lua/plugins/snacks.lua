@@ -15,7 +15,7 @@ return {
           },
         },
         formatters = {
-          file = { truncate = 65 },
+          file = { filename_first = true },
         },
       },
       explorer = {},
