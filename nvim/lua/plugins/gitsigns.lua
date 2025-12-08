@@ -9,6 +9,9 @@ return {
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      preview_config = {
+        border = 'rounded',
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
