@@ -50,6 +50,9 @@ return {
           -- Jump to the definition of the word under your cursor.
           map('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
 
+          -- Jump to the type definition of the word under your cursor.
+          -- map('grt', require('snacks').picker.lsp_type_definitions, '[G]oto [T]ype Definition')
+
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
