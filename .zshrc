@@ -9,7 +9,6 @@ prompt pure
 # Plugins
 plugins=(
   git
-  zsh-autosuggestions
   pyenv-lazy
 )
 
